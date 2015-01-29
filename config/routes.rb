@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-
-  resources :tasks do 
-    put :sort, on: :collection
-  end
   
   resources :tasks do
+    put :sort, on: :collection
     member do
       put :change
     end
