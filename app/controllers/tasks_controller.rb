@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   respond_to :html
 
-  # GET /tasks
+  # GET /tasks 
   # GET /tasks.json
   def index
     @to_do = current_user.tasks.where(state: "to_do")
@@ -50,6 +50,13 @@ class TasksController < ApplicationController
     end
   end
 
+   def sort
+     params[:order].each do |key,value|
+       Task.find(value[:id]).update_attribute(:priority,value[:position])
+     end
+     render :nothing => true
+   end
+
 
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
@@ -75,6 +82,8 @@ class TasksController < ApplicationController
     end
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
@@ -83,6 +92,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:content, :state)
+      params.require(:task).permit(:content, :state, :priority)
     end
 end

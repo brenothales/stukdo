@@ -1,4 +1,4 @@
-<div class="panel panel-info">
+<div class="panel panel-info" data-id="<%= task.id %>" >
 	<div class="panel-heading">
 		<%= link_to edit_task_path(task) do %>
 		created <%= time_ago_in_words(task.created_at) %> ago
@@ -21,3 +21,4 @@
 		<% end %>
 	</div>
 </div> 
+

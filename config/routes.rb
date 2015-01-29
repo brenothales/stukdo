@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+
+  resources :tasks do 
+    put :sort, on: :collection
+  end
+  
   resources :tasks do
     member do
       put :change
     end
   end 
+
 
   devise_for :users
   get 'about' => 'pages#about'
