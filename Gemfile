@@ -42,9 +42,8 @@ group :development, :test do
 end
 
 group :production do
-	gem 'byebug'
-	gem 'spring'
-	gem 'sqlite3'
+	gem 'rails_12factor'
+	gem 'pg' 
 end
   
 
