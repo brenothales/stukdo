@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
   resources :tasks do
     put :sort, on: :collection
     member do
@@ -7,7 +6,12 @@ Rails.application.routes.draw do
     end
   end 
 
+  resources :products do
+    get "delete"
+  end
 
+  # root to: "products#index"
+  
   devise_for :users
   get 'about' => 'pages#about'
   get 'test' => "pages#test"

@@ -9,8 +9,8 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 
 @font-face {
   font-family: 'FontAwesome';
-  src: url("/assets/fontawesome-webfont-4dd30951493ffa26be13a9568ccad00b.eot");
-  src: url("/assets/fontawesome-webfont-4dd30951493ffa26be13a9568ccad00b.eot#iefix") format('embedded-opentype'), url("/assets/fontawesome-webfont-e1552d380b8482f3986dd0b6092c55e0.woff") format('woff'), url("/assets/fontawesome-webfont-1c470690c6e2932f8b6e82210c385239.ttf") format('truetype'), url("/assets/fontawesome-webfont-bd1853f2cad4e00bacef26a7f631d1ec.svg#fontawesomeregular") format('svg');
+  src: url("/assets/fontawesome-webfont-4cf06051de8689239e7087de4b11649c.eot");
+  src: url("/assets/fontawesome-webfont-4cf06051de8689239e7087de4b11649c.eot#iefix") format('embedded-opentype'), url("/assets/fontawesome-webfont-e1e9796e37de923cfba919958e1e7fb0.woff") format('woff'), url("/assets/fontawesome-webfont-d920bcf0942384a482f36f878d199d56.ttf") format('truetype'), url("/assets/fontawesome-webfont-94502ffb2152a9d2797417d053c954d0.svg#fontawesomeregular") format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -1675,7 +1675,6 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 }
 /*
 
-
   Use Font Awesome icons (default)
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
 
@@ -1743,8 +1742,8 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 
 @font-face {
   font-family: 'FontAwesome';
-  src: url('/assets/fontawesome-webfont-4dd30951493ffa26be13a9568ccad00b.eot?v=4.3.0');
-  src: url('/assets/fontawesome-webfont-4dd30951493ffa26be13a9568ccad00b.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('/assets/fontawesome-webfont-bdd5fe963cf9a6bcf9c449166e2e5a57.woff2?v=4.3.0') format('woff2'), url('/assets/fontawesome-webfont-e1552d380b8482f3986dd0b6092c55e0.woff?v=4.3.0') format('woff'), url('/assets/fontawesome-webfont-1c470690c6e2932f8b6e82210c385239.ttf?v=4.3.0') format('truetype'), url('/assets/fontawesome-webfont-bd1853f2cad4e00bacef26a7f631d1ec.svg?v=4.3.0#fontawesomeregular') format('svg');
+  src: url('/assets/fontawesome-webfont-4cf06051de8689239e7087de4b11649c.eot?v=4.3.0');
+  src: url('/assets/fontawesome-webfont-4cf06051de8689239e7087de4b11649c.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('/assets/fontawesome-webfont-bdd5fe963cf9a6bcf9c449166e2e5a57.woff2?v=4.3.0') format('woff2'), url('/assets/fontawesome-webfont-e1e9796e37de923cfba919958e1e7fb0.woff?v=4.3.0') format('woff'), url('/assets/fontawesome-webfont-d920bcf0942384a482f36f878d199d56.ttf?v=4.3.0') format('truetype'), url('/assets/fontawesome-webfont-94502ffb2152a9d2797417d053c954d0.svg?v=4.3.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }

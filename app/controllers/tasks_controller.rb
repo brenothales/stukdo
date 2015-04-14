@@ -4,13 +4,15 @@ class TasksController < ApplicationController
 
   respond_to :html
 
+
   # GET /tasks 
   # GET /tasks.json
   def index
     @to_do = current_user.tasks.where(state: "to_do")
     @doing = current_user.tasks.where(state: "doing")
     @done = current_user.tasks.where(state: "done")
-    respond_with(@tasks)
+    @task = Task.new
+     respond_with(@tasks)
   end 
 
   # GET /tasks/1
@@ -30,15 +32,16 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = current_user.tasks.new(task_params)
-
+    @task = current_user.tasks.new(task_params) 
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @task.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -81,7 +84,6 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
-
 
 
   private
