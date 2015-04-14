@@ -3,7 +3,7 @@
 <div class="row" >
 	  <div class="well">
     <%= form_for(@task, remote: true) do |f| %>
-    <%= f.text_field :content, placeholder: "Nome da Tarefa", required: 'true',  class:"form-control content_title" %>
+    <%= f.text_field :content, label: false, required: true, autofocus: true, placeholder: "Escreva uma nova tarefa aqui e pressione enter", required: 'true',  class:"form-control content_title" %>
     <% end %>
     
 </div>
