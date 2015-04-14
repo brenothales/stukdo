@@ -1,6 +1,15 @@
+
 <!-- Button trigger modal -->
 <div class="row" >
-	<div  class="row">
+	  <div class="well">
+    <%= form_for(@task, remote: true) do |f| %>
+    <%= f.text_field :content, placeholder: "Nome da Tarefa", required: 'true',  class:"form-control content_title" %>
+    <% end %>
+    
+</div>
+  
+
+
 	    <div class="col-md-4 sortable vermelho "><h1 class="text-center">Fazer</h1>
 	      	<%= render @to_do  %>
 	    </div>
