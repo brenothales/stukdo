@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # root to: "products#index"
   
   devise_for :users
+  resources :users, only: [:index, :show]
   get 'about' => 'pages#about'
   get 'test' => "pages#test"
   resources :users, only: [:index, :show]
