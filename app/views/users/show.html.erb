@@ -1,0 +1,43 @@
+<h1>
+  <%= @user.tasks.count %> Projetos de <%= @user.email %>  
+  <small>Acompanhamento de Tarefas </small>
+</h1>
+<div class="panel panel-default">
+  <!-- Default panel contents
+  -->
+  <div class="panel-heading">
+    <h4>Tarefas Públicas</h4>
+  </div>
+  <!-- Table
+  -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="col-md-3">Tarefa</th>
+        <th class="col-md-1">Última Alteração</th>
+        <th class="col-md-2">Criadas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.tasks.each do |task| %>
+        <tr>
+          <td>
+            <% if task.state == "done" %>
+            <%= task.content %> <span class="label label-success">Finalizado</span>
+            <% elsif task.state == "doing" %>
+            <%= task.content %> <span class="label label-warning">Fazendo</span>
+            <% else  %>
+            <%= task.content %>  <span class="label label-danger">Fazer</span>
+            <% end %>
+          </td>
+          <td>
+            <%= time_ago_in_words(task.updated_at) %>
+          </td>
+          <td>
+            <%= time_ago_in_words(task.created_at) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

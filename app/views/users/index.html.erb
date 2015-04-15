@@ -1,0 +1,27 @@
+<h1>
+  Visão Geral
+  <small>Acompanhamento de Tarefas</small>
+</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Usuário</th>
+      <th>Número de tarefas públicas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |u| %>
+      <tr>
+        <td>
+           <a href="#"><%= u.email %> </a>
+        </td>
+
+        <td>
+          <div class='btn btn-info'>
+          <span class="badge"><%= link_to "Conferir", u%>  <%= u.tasks.size %></span>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -13,10 +13,15 @@
     
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left">
+        <% if current_user %>
+        <li><%= link_to "Tarefa", tasks_path %></li>
+        <li><%= link_to "Visão Geral", users_path %></li>
+
+        <% end %>
+      </ul> 
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-        <li><a href="#" data-toggle="modal" data-target="#mynewtask">Nova</a></li>
-        <li><%= link_to "Tarefa", tasks_path %></li>
         <li><%= link_to "Configuração", edit_user_registration_path %></li>
         <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
 
