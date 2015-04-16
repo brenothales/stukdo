@@ -1,15 +1,7 @@
-
 <h1>
-
-  <%= @user.tasks.count %> Projetos de 
-    <% if @user.nome != "" %>
-      <%= @user.nome %> <%= @user.sobrenome %>
-    <% else %>
-      <%= @user.email %>
-    <% end %>
-  <small>Acompanhamento de Tarefas  </small>
+  <%= @user.tasks.count %> Projetos de <%= @user.email %>  
+  <small>Acompanhamento de Tarefas </small>
 </h1>
-
 <div class="panel panel-default">
   <!-- Default panel contents
   -->

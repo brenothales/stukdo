@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {registrations: 'registrations' }
   resources :tasks do
     put :sort, on: :collection
     member do
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 
   # root to: "products#index"
   
-  devise_for :users
+  # devise_for :users
   resources :users, only: [:index, :show]
   get 'about' => 'pages#about'
   get 'test' => "pages#test"
