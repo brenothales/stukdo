@@ -3,6 +3,8 @@
   Nova Tarefa
 </button> <br>
 <!-- Button trigger modal -->
+
+
 <p></p>
 <div class="row" >
 	    <div class="col-md-4 sortable vermelho "><h1 class="text-center">Fazer</h1>
@@ -17,7 +19,7 @@
 	</div>
 </div>
 <!-- Modal -->
-<%= form_for(@task, remote: true) do |f| %>
+<%= form_for(@task, remote: true, class: "form-horizontal") do |f| %>
 <div class="modal fade" id="mynewtask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -26,10 +28,17 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Tarefas</h4>
       </div>
-      <div class="modal-body">
-      	<div class="field">
-        	<%= f.text_field :content, placeholder: "Nome da Tarefa",  class:"form-control content_title" %>
-    	</div>
+      <div class="modal-body form-group">
+      	<div class=" form-group-lg">
+        	<%= f.text_field :content, placeholder: "Nome da Tarefa",  class: "form-control", required: 'true' %> 
+        </div> <br>
+        <div class="">
+          <%= f.text_area :descricao, placeholder: "Descrição", rows:"5",  class: "form-control" %>
+        </div> <br>
+        <div class="form-group-sm">
+          <%= f.text_field :url, placeholder: "Url",  class:"form-control content_title" %>
+        </div>
+    	
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>

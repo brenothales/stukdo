@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  
+
   devise_for :users, controllers: {registrations: 'registrations' }
   resources :tasks do
     put :sort, on: :collection
+    resources :subtasks
     member do
       put :change
     end

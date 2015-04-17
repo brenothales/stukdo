@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def index
     @users = User.includes(:tasks)#.includes(tasks: :sub_tasks).all
     @users = User.all
+
   end
 
   def show
