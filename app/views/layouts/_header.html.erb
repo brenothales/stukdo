@@ -17,16 +17,15 @@
         <% if current_user %>
         <li><%= link_to "Tarefa", tasks_path %></li>
         <li><%= link_to "Visão Geral", users_path %></li>
-<<<<<<< HEAD
-=======
+
 
         <% end %>
       </ul> 
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
->>>>>>> c104283515e62b0b6e04b17c1b1e599bccc685a9
         <li><%= link_to "Configuração", edit_user_registration_path %></li>
         <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+        <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
 
         <% else %>
         

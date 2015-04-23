@@ -1,10 +1,11 @@
 <h1>
-  Visão Geral
+  Visão Geral 
   <small>Acompanhamento de Tarefas</small>
 </h1>
 <table class="table table-striped">
   <thead>
     <tr>
+      <th></th>
       <th>Usuário</th>
       <th>Número de tarefas públicas</th>
     </tr>
@@ -13,15 +14,24 @@
     <% @users.each do |u| %>
       <tr>
         <td>
-           <a href="#"><%= u.email %> </a>
+          <div class="round-image-50"><%= image_tag(u.avatar.url(:thumb)) %></div>
         </td>
+        <td>
+          <% unless u.nome.empty? -%>
+           <%= u.nome %>
+           <%= u.sobrenome %>
+          <% else %>
+           <%= u.email %>
+          <% end %>
 
+        </td>
         <td>
           <div class='btn btn-info'>
-          <span class="badge"><%= link_to "Conferir", u%>  <%= u.tasks.size %></span>
+          <span class="badge"><%= link_to "Conferir", u %>  <%= u.tasks.size %></span>
           </div>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+

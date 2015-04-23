@@ -1,0 +1,32 @@
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, html: {class: "form-signin"}) do |f| %>
+<h2 class="text-center">Editar <%= resource_name.to_s.humanize %></h2>
+<%= f.error_notification %>
+ 
+<%= f.input :nome, required: true, autofocus: true, label: false, placeholder: "Nome", input_html: {class: "form-control"} %>
+<%= f.input :sobrenome %>
+<%= f.input :avatar %>
+<%= f.input :celular %>
+<%= f.input :funcacao %>
+<%= f.input :formacao %>
+<%= f.input :setor %>
+<%= f.input :bio %>
+<%= f.input :username, required: true, label: false, placeholder: "Nome de usuário", input_html: {class: "form-control"} %>
+<%= f.input :email, required: true, label: false, placeholder: "Email", input_html: {class: "form-control"} %>
+ 
+<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+<p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+<% end %>
+ 
+<%= f.input :password, autocomplete: "off", required: false, label: false, placeholder: "Senha", input_html: {class: "form-control"} %>
+<%= f.input :password_confirmation, required: false, label: false, placeholder: "Senha Confirmation", input_html: {class: "form-control"} %>
+<%= f.input :current_password, required: true, label: false, placeholder: "Atual Senha", input_html: {class: "form-control"} %>
+ 
+ 
+<%= f.button :submit, "Atualizar", class: "btn btn-primary btn-block" %>
+<% end %>
+ 
+<h3>Cancelar minha conta</h3>
+ 
+<p>Unhappy? <%= link_to "Cancelar conta", registration_path(resource_name), data: { confirm: "Você tem certeza?" }, method: :delete %></p>
+ 
+<%= link_to "Voltar", :back %> 

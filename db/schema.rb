@@ -11,14 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150128164022) do
+ActiveRecord::Schema.define(version: 20150419015512) do
 
-  create_table "products", force: :cascade do |t|
-    t.string   "name"
-    t.decimal  "price",      precision: 12, scale: 2
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "logs", force: :cascade do |t|
+    t.integer  "subtask_id"
+    t.datetime "start"
+    t.datetime "stop"
   end
+
+  add_index "logs", ["subtask_id"], name: "index_logs_on_subtask_id"
+
+  create_table "subtasks", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "complete"
+    t.integer  "task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "subtasks", ["task_id"], name: "index_subtasks_on_task_id"
 
   create_table "tasks", force: :cascade do |t|
     t.text     "content"
@@ -28,6 +39,8 @@ ActiveRecord::Schema.define(version: 20150128164022) do
     t.string   "state",        default: "to_do"
     t.text     "content_html"
     t.integer  "priority"
+    t.text     "descricao"
+    t.string   "url"
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,6 +56,25 @@ ActiveRecord::Schema.define(version: 20150128164022) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username",               default: "", null: false
+    t.string   "nome",                   default: "", null: false
+    t.string   "sobrenome"
+    t.string   "apelido"
+    t.text     "bio"
+    t.string   "celular"
+    t.string   "funcacao"
+    t.string   "formacao"
+    t.date     "datanascimento"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "linkedin"
+    t.string   "whatsapp"
+    t.string   "setor"
+    t.string   "ramal"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

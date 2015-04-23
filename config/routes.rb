@@ -1,24 +1,35 @@
 Rails.application.routes.draw do
+
+
+  devise_for :users, controllers: {registrations: 'registrations' }
   resources :tasks do
     put :sort, on: :collection
+    resources :subtasks
     member do
       put :change
     end
-  end 
+
+  resources :subtasks, only: [:create, :destroy] do
+    member do
+      get :start, :stop, :finish
+    end
+  end
+
+  end
 
   resources :products do
     get "delete"
   end
 
   # root to: "products#index"
-  
-  devise_for :users
+
+  # devise_for :users
   resources :users, only: [:index, :show]
   get 'about' => 'pages#about'
   get 'test' => "pages#test"
   resources :users, only: [:index, :show]
   root 'pages#home'
-  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

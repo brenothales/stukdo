@@ -1,0 +1,19 @@
+git checkout Gemfile.lock
+git pull
+bundle install 
+RAILS_ENV=production bundle exec rake db:migrate
+RAILS_ENV=production bundle exec rake assets:precompile
+
+
+String de abas
+
+	<ul id="myTab" class="nav nav-tabs" role="tablist">
+	  <% 0.upto(7.to_i).each do |day_count| %>
+    <li>
+      <a href="#<%=day_count%>" role="tab" data-toggle="tab">
+        <%= (Date.today + day_count.days).strftime('%A') unless day_count == 0 || day_count == 1 %>
+        <% if day_count == 0 %><b>Today</b><% elsif day_count == 1 %>Tomorrow<% end %> 
+      </a>
+    </li>
+	  <% end %>
+	</ul>
