@@ -1,35 +1,48 @@
 <div  id="container_tasks" class="panel panel-info" data-id="<%= task.id %>" >
-
 	<div class="panel-heading">
+		<%= raw(task.content_html) %> 
+		<div class="task-time">  <%= format_logged(@task.logged) %></div>
 		<%= link_to edit_task_path(task) do %>
 		created <%= time_ago_in_words(task.created_at) %> ago
 		<% end %>
 		<%= link_to "x", task_path(task), method: :delete, class: "pull-right" %>
+	</div> 
+	
+<ul class="nav nav-tabs">
+   <li class="active" ><a href="#<%= raw(task.id) %>" data-toggle="tab">Subtarefa</a></li>
+   <% if task.descricao.present? or task.url.present? %>
+   <li><a href="#<%= raw(task.id) %><%= raw(current_user.id) %>" data-toggle="tab">Descrição</a></li>
+   <% end -%>
+</ul>
+<div class="tab-content">
+	<div class="tab-pane active" id="<%= raw(task.id) %>">
+		<div  class="panel-body">
+			
+			 <!-- link_to 'delete task', tasks_path(id: @task.id, format: 'js'), class: 'task-delete', remote: true, method: :delete %> -->
+			<div class="subtask-create">
+			  <%= form_tag('/subtasks', method: :post, remote: true) do %>
+			<%= text_field_tag(:name, nil, placeholder: 'Subtarefa', class: "form-control") %>
+			     <!-- text_field_tag(:task_id, "#{@to_do.empty? ? 0 : @to_do.first.id}") %> -->
+			    <%= hidden_field_tag :task_id, task.id %>
+			  <% end -%>
+			</div>
+
+			<div class="taskpane">
+			    <%= render @task.subtasks %>
+			</div>
+
+		</div> 
 	</div>
 
-
-
-	<ul class="nav nav-tabs">
-		<li class="active" ><a href="#<%= raw(task.id) %>" data-toggle="tab">Tarefa</a></li>
-		<% if task.descricao.present? or task.url.present? %>
-		<li><a href="#<%= raw(task.id) %><%= raw(current_user.id) %>" data-toggle="tab">Descrição</a></li>
-		<% end -%>
-	</ul>
-	<div class="tab-content">
-		<div class="tab-pane active" id="<%= raw(task.id) %>">
-			<div  class="panel-body">
-				<%= raw(task.content_html) %> <br>
-			</div>
-		</div>
-		<% if task.descricao.present? or task.url.present? %>
-		<div class="tab-pane " id="<%= raw(task.id) %><%= raw(current_user.id) %>">
-			<div  class="panel-body">
-				<p> <%= raw(task.descricao) %></p>
-				<small><%= task.url %></small>
-			</div>
-		</div>
-		<% end -%>
+	<% if task.descricao.present? or task.url.present? %>
+	<div class="tab-pane " id="<%= raw(task.id) %><%= raw(current_user.id) %>">
+		<div  class="panel-body">
+			<p> <%= raw(task.descricao) %></p>
+			<small><%= task.url %></small>
+		</div> 
 	</div>
+	<% end -%>
+</div>
 
 	<div  class=" panel-footer text-center">
 		<% if task.state == "doing" %>
@@ -44,4 +57,5 @@
 		<% end %>
 
 	</div>
-</div>
+</div> 
+

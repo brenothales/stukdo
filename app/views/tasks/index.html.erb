@@ -7,19 +7,19 @@
 
 <p></p>
 <div class="row" >
-	    <div class="col-md-4 sortable vermelho "><h1 class="text-center">Fazer <%= @to_do.count %></h1>
-	      	<%= render @to_do  %>
-	    </div>
-	    <div class="col-md-4 sortable amarelo"><h1 class="text-center">Fazendo <%= @doing.count  %></h1>
-	      	<%= render @doing  %>
-	    </div>
-	    <div class="col-md-4 sortable verde"><h1 class="text-center">Finalizado <%= @done.count  %></h1>
-	    		<%= render @done  %>
-	    </div>
-	</div>
+      <div class="col-md-4 sortable vermelho "><h1 class="text-center">Fazer <%= @to_do.count %></h1>
+          <%= render @to_do  %>
+      </div>
+      <div class="col-md-4 sortable amarelo"><h1 class="text-center">Fazendo <%= @doing.count  %></h1>
+          <%= render @doing  %>
+      </div>
+      <div class="col-md-4 sortable verde"><h1 class="text-center">Finalizado <%= @done.count  %></h1>
+          <%= render @done  %>
+      </div>
+  </div>
 </div>
 <!-- Modal -->
-<%= form_for(@task, remote: true, class: "form-horizontal") do |f| %>
+<%= form_for(@tasknew, remote: true, class: "form-horizontal") do |f| %>
 <div class="modal fade" id="mynewtask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -29,8 +29,8 @@
         <h4 class="modal-title" id="myModalLabel">Tarefas</h4>
       </div>
       <div class="modal-body form-group">
-      	<div class=" form-group-lg">
-        	<%= f.text_field :content, placeholder: "Nome da Tarefa",  class: "form-control", required: 'true' %>
+        <div class=" form-group-lg">
+          <%= f.text_field :content, placeholder: "Nome da Tarefa",  class: "form-control", required: 'true' %> 
         </div> <br>
         <div class="">
           <%= f.text_area :descricao, placeholder: "Descrição", rows:"5",  class: "form-control" %>
@@ -38,7 +38,7 @@
         <div class="form-group-sm">
           <%= f.text_field :url, placeholder: "Url",  class:"form-control content_title" %>
         </div>
-
+      
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -48,3 +48,5 @@
   </div>
 </div>
 <% end %>
+
+

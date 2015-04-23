@@ -1,9 +1,6 @@
 class Log < ActiveRecord::Base
-
   belongs_to :subtask
-
   default_scope { order(:stop) }
-
   validates_presence_of :subtask
 
   def duration

@@ -1,9 +1,13 @@
 class Task < ActiveRecord::Base
-	has_many :subtasks, :dependent => :destroy
 	belongs_to :user
 
+	has_many :subtasks, :dependent => :destroy
+	has_many :logs, through: :subtasks
+	
+	validates :content, presence: { message: 'Please provide a name' }
+
 	validates :user_id, presence: true
-	validates :content, presence: true
+
 	default_scope { order("priority ASC") }
 
 
@@ -15,5 +19,8 @@ class Task < ActiveRecord::Base
 		simple_format	
 	end 
 
+	def logged
+	  logs.map(&:duration).sum
+	end
 
 end

@@ -2,12 +2,6 @@ Rails.application.routes.draw do
 
 
   devise_for :users, controllers: {registrations: 'registrations' }
-  resources :tasks do
-    put :sort, on: :collection
-    resources :subtasks
-    member do
-      put :change
-    end
 
   resources :subtasks, only: [:create, :destroy] do
     member do
@@ -15,13 +9,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :tasks do
+    put :sort, on: :collection
+    member do
+      put :change
+    end
   end
 
-  resources :products do
-    get "delete"
-  end
 
-  # root to: "products#index"
 
   # devise_for :users
   resources :users, only: [:index, :show]

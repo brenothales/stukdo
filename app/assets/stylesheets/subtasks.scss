@@ -1,0 +1,210 @@
+/* This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *
+ */
+/* line 1, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/logs.sass */
+.log {
+  padding: 5px;
+}
+
+/* line 4, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/logs.sass */
+.log-summary {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* line 1, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.taskpane, .task-create {
+  margin-left: 0%;
+}
+
+/* line 4, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.subtask {
+  border: 1px solid #afafaf;
+  border-bottom: 2px solid #afafaf;
+  padding: 8px;
+  margin-top: 5px;
+  margin: 0px;
+}
+
+/* line 10, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.subtask:hover {
+  border-bottom: 2px solid #5e5e5e;
+}
+
+/* line 13, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.subtask-work {
+  border-bottom-color: orange;
+}
+/* line 15, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.subtask-work:hover {
+  border-bottom-color: orange;
+}
+
+/* line 18, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.subtask-done, .subtask-delete {
+  color: #5e5e5e;
+  border-bottom-color: green;
+}
+/* line 21, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.subtask-done:hover, .subtask-delete:hover {
+  border-bottom-color: green;
+}
+
+/* line 24, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.time, .subtask-action {
+  float: right;
+  font-weight: bold;
+}
+
+/* line 28, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.time, .action-start {
+  border-left: 1px solid #afafaf;
+  margin-left: 8px;
+  padding-left: 8px;
+}
+
+/* line 33, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.subtask-action {
+  text-decoration: none;
+}
+
+/* line 36, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.action-start {
+  color: green;
+}
+
+/* line 39, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.action-stop {
+  color: red;
+}
+
+/* line 42, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.action-done, a.action-delete {
+  color: #5e5e5e;
+  font-weight: normal;
+}
+
+/* line 46, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.subtask-title {
+  font-weight: bold;
+  color: #2a2b2b;
+}
+
+/* line 51, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.subtask-title .icon {
+  color: #afafaf;
+  padding-right: 8px;
+}
+/* line 55, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.subtask-title .show-logs {
+  color: #afafaf;
+  padding-right: 50px;
+}
+/* line 59, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.subtask-title:hover {
+  color: #2a2b2b;
+}
+
+/* line 62, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.subtask-logs {
+  border-top: 1px solid #eee;
+  display: none;
+  margin-top: 5px;
+}
+
+/* line 67, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
+.subtask-create form input {
+  border: 1px solid #5e5e5e;
+  margin-bottom: 5px;
+  margin: 0px;
+  padding: 8px;
+
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+/* line 1, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/tasks.sass */
+ul.tabs {
+  border-right: 1px solid #5e5e5e;
+  float: left;
+  margin: 0;
+  padding: 10px 0px;
+  width: 14%;
+}
+
+/* line 8, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/tasks.sass */
+li {
+  list-style: none;
+}
+
+/* line 11, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/tasks.sass */
+.task {
+  border-top: 1px solid #afafaf;
+  border-left: 1px solid #afafaf;
+  border-right: none;
+  padding: 8px;
+  display: block;
+  color: #5e5e5e;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 3px;
+  background-color: #fff;
+}
+
+/* line 23, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/tasks.sass */
+ul.tabs a:hover {
+  margin-left: -3px;
+}
+
+/* line 26, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/tasks.sass */
+li.active .task {
+  margin-left: -3px;
+  margin-right: -1px;
+  padding-bottom: 10px;
+  border: 1px solid #5e5e5e;
+  border-right: none;
+  color: #2a2b2b;
+}
+
+/* line 34, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/tasks.sass */
+li.last .task {
+  border-bottom: 1px solid #afafaf;
+}
+
+/* line 37, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/tasks.sass */
+li form input {
+  border: 1px solid #5e5e5e;
+  border-right: none;
+  margin: 0px;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+/* line 46, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/tasks.sass */
+.task-delete, .task-time {
+  float: right;
+  margin: 10px 5px;
+  text-decoration: none;
+  color: #5e5e5e;
+}
+
+/* line 52, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/tasks.sass */
+.task-time {
+  font-size: 150%;
+  font-weight: bold;
+}
+
+/* line 56, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/tasks.sass */
+.task-delete {
+  margin-top: 15px;
+}
