@@ -14,5 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require html.sortable
+//= require functions
+//= require jquery.color
 //= require turbolinks
 //= require_tree .

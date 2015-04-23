@@ -1,0 +1,34 @@
+<div class="subtask subtask-<%= subtask.id %> <%='subtask-work' if subtask.work? %> <%='subtask-done' if subtask.complete? %>">
+
+<div class="time"> <%=format_logged(subtask.logged) %></div>
+
+<% if subtask.work? %>
+<%= link_to ' ', stop_subtask_path(subtask),  class: 'fa fa-pause subtask-action action-stop', remote: true  %>
+<% end -%>
+<% if subtask.complete? %>
+<%= link_to ' ', subtask,  class: 'fa fa-trash-o subtask-action action-delete', remote: true, method: :delete  %> 
+<% end -%>
+
+<% if !subtask.complete? && !subtask.work? %>
+<%= link_to ' ', start_subtask_path(subtask),  class: 'fa fa-play subtask-action action-start', remote: true  %>
+
+<%= link_to ' ', finish_subtask_path(subtask),  class: 'fa fa-stop subtask-action action-done', remote: true  %>
+<% end -%>
+
+<div class="subtask-title">
+  <%- if subtask.work?  %>
+  <span class="icon"><i class="laranja fa fa-cog"></i></span>
+  <% elsif subtask.complete? %>
+  <span class="icon "><i class="verde fa fa-check-circle"></i></span>
+  <% else %>
+  <span class="icon">&#9417;</span>
+  <% end -%>
+  <span><%=subtask.name %></span>
+  <% if !subtask.logs.empty? %>
+  <span class="show-logs">&#8609;</span>
+  <% end -%>
+</div>
+<div class="subtask-logs logs-<%=subtask.id %>">
+  <%= render subtask.logs %>
+</div>
+</div>

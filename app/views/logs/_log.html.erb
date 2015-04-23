@@ -1,0 +1,10 @@
+<div class="log<%=' log-work' if !log.stop? %>">
+
+  <span class="log-summary"><%=format_logged(log.duration)%></span> 
+
+  <span> <%=l(log.start, format: :long)%></span>
+
+<% if log.stop %>
+    <span>&#8611; <%=l(log.stop, format: :long)%></span>
+<% end -%>
+</div>

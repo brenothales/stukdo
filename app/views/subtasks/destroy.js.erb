@@ -1,1 +1,2 @@
-$('#edit_task_<%= @task.id %>').remove();
+notice($('.subtask-<%= @subtask.id %>'), '#ff6666');
+$('.subtask-<%= @subtask.id %>').hide('fast');
