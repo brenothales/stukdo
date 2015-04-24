@@ -1,3 +1,4 @@
+<div  class: "task task-<%= @task.id %>" >
 <div class="subtask subtask-<%= subtask.id %> <%='subtask-work' if subtask.work? %> <%='subtask-done' if subtask.complete? %>">
 
 <div class="time"> <%=format_logged(subtask.logged) %></div>
@@ -30,5 +31,6 @@
 </div>
 <div class="subtask-logs logs-<%=subtask.id %>">
   <%= render subtask.logs %>
+</div>
 </div>
 </div>

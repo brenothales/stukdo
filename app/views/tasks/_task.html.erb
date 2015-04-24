@@ -9,9 +9,10 @@
 	</div> 
 	
 <ul class="nav nav-tabs">
-   <li class="active" ><a href="#<%= raw(task.id) %>" data-toggle="tab">Subtarefa</a></li>
+	<li><%= link_to 'Subtarefa', task_path(task), class: "active task task-#{task.id}", remote: true  %> </li>
+   <!-- <li><a href="#<%= raw(task.id) %>" data-toggle="tab">Subtarefa</a></li> -->
    <% if task.descricao.present? or task.url.present? %>
-   <li><a href="#<%= raw(task.id) %><%= raw(current_user.id) %>" data-toggle="tab">Descrição</a></li>
+   <li class=""><a href="#<%= raw(task.id) %><%= raw(current_user.id) %>" data-toggle="tab">Descrição</a></li>
    <% end -%>
 </ul>
 <div class="tab-content">
@@ -27,8 +28,8 @@
 			  <% end -%>
 			</div>
 
-			<div class="taskpane">
-			    <%= render @task.subtasks %>
+			<div class="taskpane" data-id="<%= task.id %>">
+			    <%=  render @task.subtasks  %> 
 			</div>
 
 		</div> 

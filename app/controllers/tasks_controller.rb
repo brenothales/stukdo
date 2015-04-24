@@ -12,7 +12,12 @@ class TasksController < ApplicationController
     @doing = current_user.tasks.where(state: "doing")
     @done = current_user.tasks.where(state: "done")
     @tasknew = Task.new
+    # @task = Task.includes(subtasks: :logs).first
+
+    @tasks = Task.all
     @task = Task.includes(subtasks: :logs).first
+
+
      respond_with(@tasks)
   end 
 
