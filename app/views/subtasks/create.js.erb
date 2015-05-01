@@ -1,5 +1,5 @@
 <% if @subtask.valid? %>
-$('#taskpane-<%= @subtask.task_id %>').prepend('<%= j(render @subtask) %>');
+$('.taskpane-<%= @subtask.task_id %>').prepend('<%= j(render @subtask) %>');
 notice($('.subtask-<%= @subtask.id %>'), '#eaeaae');
 $('.subtask-create #name').val('');
 
