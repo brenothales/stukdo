@@ -39,6 +39,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = current_user.tasks.new(task_params) 
+    @tasks = Task.all
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
@@ -56,6 +57,11 @@ class TasksController < ApplicationController
     @task.update_attributes(state: params[:state])
       respond_to do |format|
       format.html {redirect_to tasks_path, notice: "Task Update"}
+    end
+    @task.subtasks.each do |stk|
+      if stk.work?
+        stk.logs.first.update(stop: Time.now)
+      end
     end
   end
 

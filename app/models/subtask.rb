@@ -4,6 +4,7 @@ class Subtask < ActiveRecord::Base
 
   validates_presence_of :task
 	default_scope  { order(:created_at => :desc) }
+  
   def work?
     !logs.empty? && !logs.first.stop
   end

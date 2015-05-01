@@ -1,7 +1,7 @@
 <div  id="container_tasks" class="panel panel-info" data-id="<%= task.id %>" >
 	<div class="panel-heading">
 		<%= raw(task.content_html) %> 
-		<div class="task-time">  <%= format_logged(@task.logged) %></div>
+		<div class="task-time task-time-<%= task.id %>">  <%= format_logged(task.logged) %></div>
 		<%= link_to edit_task_path(task) do %>
 		created <%= time_ago_in_words(task.created_at) %> ago
 		<% end %>
@@ -9,27 +9,28 @@
 	</div> 
 	
 <ul class="nav nav-tabs">
-	<li><%= link_to 'Subtarefa', task_path(task), class: "active task task-#{task.id}", remote: true  %> </li>
-   <!-- <li><a href="#<%= raw(task.id) %>" data-toggle="tab">Subtarefa</a></li> -->
+   <li class="active" ><a href="#<%= raw(task.id) %>" data-toggle="tab">Subtarefa</a></li>
    <% if task.descricao.present? or task.url.present? %>
-   <li class=""><a href="#<%= raw(task.id) %><%= raw(current_user.id) %>" data-toggle="tab">Descrição</a></li>
+   <li><a href="#<%= raw(task.id) %><%= raw(current_user.id) %>" data-toggle="tab">Descrição</a></li>
    <% end -%>
 </ul>
 <div class="tab-content">
 	<div class="tab-pane active" id="<%= raw(task.id) %>">
 		<div  class="panel-body">
 			
-			 <!-- link_to 'delete task', tasks_path(id: @task.id, format: 'js'), class: 'task-delete', remote: true, method: :delete %> -->
-			<div class="subtask-create">
-			  <%= form_tag('/subtasks', method: :post, remote: true) do %>
-			<%= text_field_tag(:name, nil, placeholder: 'Subtarefa', class: "form-control") %>
-			     <!-- text_field_tag(:task_id, "#{@to_do.empty? ? 0 : @to_do.first.id}") %> -->
-			    <%= hidden_field_tag :task_id, task.id %>
-			  <% end -%>
-			</div>
+		 <!-- link_to 'delete task', tasks_path(id: @task.id, format: 'js'), class: 'task-delete', remote: true, method: :delete %> -->
+		<% unless task.state == "done" %>
+		<div class="subtask-create">
 
-			<div class="taskpane" data-id="<%= task.id %>">
-			    <%=  render @task.subtasks  %> 
+		  <%= form_tag('/subtasks', method: :post, remote: true) do %>
+		<%= text_field_tag(:name, nil, placeholder: 'Subtarefa', class: "form-control") %>
+		     <!-- text_field_tag(:task_id, "#{@to_do.empty? ? 0 : @to_do.first.id}") %> -->
+		<%= hidden_field_tag :task_id, task.id %>
+		  <% end -%>
+		</div>
+		<% end -%>
+			<div class="taskpane" id="taskpane-<%= task.id %>">
+			    <%=  render task.subtasks %> 
 			</div>
 
 		</div> 
@@ -47,14 +48,17 @@
 
 	<div  class=" panel-footer text-center">
 		<% if task.state == "doing" %>
-		<div class="btn-group btn-group-justified">
-			<%= link_to "<i class='fa fa-arrow-left'></i>".html_safe, change_task_path(task, state: "to_do"), method: :put, class: "btn btn-info btn-md btn-block" %>
-			<%= link_to "<i class='fa fa-arrow-right'></i>".html_safe, change_task_path(task, state: "done"), method: :put, class: "btn btn-info btn-md btn-block" %>
+		<div>
+			<div class="btn-group btn-group-justified">
+				<%= link_to "<i class='fa fa-arrow-left'></i>".html_safe, change_task_path(task, state: "to_do"), method: :put, class: "btn btn-info btn-md btn-block" %>
+				<%= link_to "<i class='fa fa-arrow-right'></i>".html_safe, change_task_path(task, state: "done"), method: :put, class: "btn btn-info btn-md btn-block" %>
+			</div>
 		</div>
 		<% elsif task.state == "done" %>
 		<%= link_to "<i class='fa fa-arrow-left'></i>".html_safe, change_task_path(task, state: "doing"), method: :put, class: "btn btn-info btn-md btn-block" %>
 		<% else %>
 		<%= link_to "<i class='fa fa-arrow-right'></i>".html_safe, change_task_path(task, state: "doing"), method: :put, class: "btn btn-info btn-md btn-block" %>
+
 		<% end %>
 
 	</div>

@@ -15,3 +15,10 @@
  *= require_self
  */
 
+
+.verdeicon{
+	color: green;
+}
+.laranjaicon{
+	color: rgb(236, 88, 6);
+}

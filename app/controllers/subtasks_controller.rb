@@ -1,10 +1,10 @@
 class SubtasksController < ApplicationController
 
   def create
-
-    @subtask = Task.find(params[:task_id]).subtasks.create(name: params[:name])
 #   @subtasks = Subtask.where(task_id: @task.id)
-@task = Task.all
+    @task = Task.find(params[:task_id])
+    @subtask = @task.subtasks.create(name: params[:name])
+    puts @task.id
   end
 
   def destroy
