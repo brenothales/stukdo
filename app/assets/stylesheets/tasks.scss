@@ -2,40 +2,49 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// .test{
+// color: darken( $base-color, 10% );
+// color: lighten( $base-color, 10% );
+// color: saturate( $base-color, 20% );
+// color: desaturate( $base-color, 20% );
+// }
+
 .sortable-placeholder {
   border: 1px dashed #CCC;
   background-color: #f9f9f9;
-  height: 80px;
+  height: 280px;
   margin-bottom: 10px;
 }
  
 .sortable {
-  display: list-item;
+  // display: list-item;
 }
 
 .vermelho {
-	background-color: #f2dede;
-	border-color: #ebccd1;
-	border-radius: 4px;
+	// background-color: #F31240;
+	// border-radius: 4px;
 	h1{
-	color: #a94442;
+	color: #F31240;
 	}
 }
 .amarelo {
+  font-style: normal;
 	h1{
-  color: #CA8D25;
+  color: #F57C1D;
 }
-  background-color: #F9EBA5;
-  border-color: #F0D7A2;
-  border-radius: 4px;
+  // background-color: #F9EBA5;
+  border-left: 2px dotted #B4B4B4;
+  // border-radius: 4px;
 }
 .verde {
+  font-style: normal;
 	h1{
-color: #3c763d;
+color: #29C2E8;
 }
-background-color: #dff0d8;
-border-color: #d6e9c6;
-border-radius: 4px;
+// background-color: #dff0d8;
+border-left: 2px dotted #B4B4B4;
+// border-radius: 4px;
 }
 
 .round-image-50 {

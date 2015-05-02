@@ -4,3 +4,22 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+
+.navbar{
+	margin-bottom: 0px !important;
+}
+body{
+	background-image: url('https://www.sit.no/sites/all/themes/sit_theme/images/bg-ny.png');
+}
+
+.row {
+   margin-top: 0px; 
+}
+
+.clickable{
+    cursor: pointer;   
+}
+
+.postit-heading span {
+	margin-top: -22px;
+}

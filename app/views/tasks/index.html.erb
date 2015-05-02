@@ -1,25 +1,20 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg right" data-toggle="modal" data-target="#mynewtask">
-  Nova Tarefa
-</button> <br>
-<!-- Button trigger modal -->
 
 
-<p></p>
 <div class="row" >
-      <div class="col-md-4 sortable vermelho "><h1 class="text-center">Fazer <%= @to_do.count %></h1>
+      <div class="col-md-4 sortable vermelho "><h1 class="text-center">FAZER <%= @to_do.count %></h1>
           <%= render @to_do  %>
       </div>
-      <div class="col-md-4 sortable amarelo"><h1 class="text-center">Fazendo <%= @doing.count  %></h1>
+      <div class="col-md-4 sortable amarelo"><h1 class="text-center">FAZENDO <%= @doing.count  %></h1>
           <%= render @doing  %>
       </div>
-      <div class="col-md-4 sortable verde"><h1 class="text-center">Finalizado <%= @done.count  %></h1>
+      <div class="col-md-4 sortable verde"><h1 class="text-center">FINALIZADO <%= @done.count  %></h1>
           <%= render @done  %>
       </div>
   </div>
 </div>
 <!-- Modal -->
-<%= form_for(@tasknew, remote: true, class: "form-horizontal") do |f| %>
+<div class="postit ">
+<%= form_for(@tasknew, remote: true, class: "form-horizontal ") do |f| %>
 <div class="modal fade" id="mynewtask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -50,3 +45,6 @@
 <% end %>
 
 
+</div>
+<!-- renderiza partil do botão -->
+<%= render "botaoAdicionar" %>

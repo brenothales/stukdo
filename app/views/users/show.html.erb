@@ -22,8 +22,10 @@
     <thead>
       <tr>
         <th class="col-md-3">Tarefa</th>
+        <th class="col-md-2">Subtarefas</th>
         <th class="col-md-1">Última Alteração</th>
         <th class="col-md-2">Criadas</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -36,8 +38,17 @@
             <%= task.content %> <span class="label label-warning">Fazendo</span>
             <% else  %>
             <%= task.content %>  <span class="label label-danger">Fazer</span>
-            <% end %>
+            <% end %> <br>
+            <b><%= task.descricao if task.descricao %></b>
           </td>
+          <td>
+            <ul id="selector">
+              <% task.subtasks.each do |subtask| %>
+                <li> <%= subtask.name %></li>
+              <% end -%>
+            </ul>
+          </td>
+
           <td>
             <%= time_ago_in_words(task.updated_at) %>
           </td>

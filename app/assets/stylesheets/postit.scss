@@ -1,9 +1,26 @@
 .postit{
-p {
-  margin: 0;
-  padding: 0;
-  line-height: 1.5;
+cursor: grab;
+cursor: -webkit-grab;
+cursor: -moz-grabbing;
+// cursor: move;
+
+p{
+	font-size:150%;
 }
+
+.fixe{
+	  position: absolute;
+	  width: 30px;
+	  height: 30px;
+	  top: -15px;
+	  left: 50%;
+	  margin-left: -15px;
+	  background: #0067ce;
+	  border-radius: 15px;
+	  box-shadow: -10px 15px 25px rgba(0,0,0,0.2), inset -1px -8px 6px rgba(0,0,0,0.4), inset 1px 1px rgba(255,255,255,0.5), -1px 4px 2px rgba(0,0,0,0.4), inset -1px -1px rgba(255,255,255,0.6), -1px 1px rgba(0,0,0,0.4);
+	  cursor: move;
+	  z-index: 10;
+	}
 
 h3 {
   margin: 0;
@@ -11,11 +28,16 @@ h3 {
   font-size: 140%;
   font-weight: normal;
   line-height: 1.5;
+  width: 100%;
+
+  p{
+  	margin-bottom: -6px
+  }
 }
 
-.postit1,.postit2,.postit3,.postit4 {
+.postit1, .postit2, .postit3, .postit4 {
 	position:relative;
-	padding: 25px;
+	padding: 0px 15px 15px 15px ;
 	display: inline-block;
 	-webkit-box-shadow: 0 8px 10px -7px #999;
 	-moz-box-shadow: 0 8px 10px -7px #999;
@@ -23,23 +45,57 @@ h3 {
 	-webkit-border-bottom-right-radius: 60px 10px;
 	-moz-border-radius-bottomright: 60px 10px;
 	border-bottom-right-radius: 60px 10px;
-	margin: 0 0 20px 20px;
+	margin: 0 0 20px 0px;
+	width: 100%;
+
 }
 
 .postit1 h3,.postit2 h3,.postit3 h3,.postit4 h3 {
 	border-top-width: 2px;
-	border-top-style: dotted;
-	margin: 0 -25px;
-	padding: 15px 25px 0 25px;
+	border-bottom-style: dotted;
+	margin: 0 0px;
+	padding: 0px 0px 14px 0px;
 }
 
-.postit1 {background: #fefabc;}
-.postit1 h3 {border-top-color: #dbd581;}
-.postit2 {background: #FDD7DB;}
+.postit1 {background: #fefabc;
+	a {
+	  color: #F57C1D;
+	  text-decoration: none;
+	}
+	h3 {border-top-color: #dbd581;}
+}
+
+.postit2 {background: #FDD7DB;
+	a {
+	  color: rgb(243, 18, 64);
+	  text-decoration: none;
+	}
+}
 .postit2 h3 {border-top-color: #E6A1A8;}
 .postit3 {background: #EAF763;}
 .postit3 h3 {border-top-color: #72A201;}
-.postit4 {background: #B9EAF6;}
+.postit4 {background: #B9EAF6;
+	a {
+	  color: #0EA3EB;
+	  text-decoration: none;
+	}
+}
 .postit4 h3 {border-top-color: #6DB4C4;}
 
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  color: #555;
+  background-color: transparent !important;
+  border: none !important;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+.nav-tabs {
+   border-bottom: none;
+}
+	.btn-info {
+	  color: #000;
+	  background-color: transparent;
+	  border-color: transparent;
+	  font-size: 20px;
+	}
 }

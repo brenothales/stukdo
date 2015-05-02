@@ -3,7 +3,9 @@
 <div class="time"> <%=format_logged(subtask.logged) %></div>
 <% unless subtask.task.state == "done" %>
 <% if subtask.work? %>
+<div class="finalizadolink">
 <%= link_to ' ', stop_subtask_path(subtask),  class: 'fa fa-pause subtask-action action-stop', remote: true  %>
+</div>
 <% end -%>
 <% if subtask.complete? %>
 <%= link_to ' ', subtask,  class: 'fa fa-trash-o subtask-action action-delete', remote: true, method: :delete  %> 
@@ -20,7 +22,7 @@
   <% if subtask.work?  %>
   <span class="icon"><i class="laranjaicon fa fa-refresh fa-spin"></i></span>
   <% elsif subtask.complete? %>
-  <span class="icon "><i class="verdeicon fa fa-check-circle"></i></span>
+  <span class="icon "><i class="verdeicon fa fa-check fa-1x"></i></span>
   <% else %>
   <span class="icon">&#9417;</span>
   <% end %> 

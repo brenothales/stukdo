@@ -12,6 +12,7 @@
 /* line 1, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/logs.sass */
 .log {
   padding: 5px;
+  font-size: 12px;
 }
 
 /* line 4, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/logs.sass */
@@ -27,8 +28,8 @@
 
 /* line 4, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
 .subtask {
-  border: 1px solid #afafaf;
-  border-bottom: 2px solid #afafaf;
+  // border: 1px solid #afafaf;
+  // border-bottom: 2px solid #afafaf;
   padding: 8px;
   margin-top: 5px;
   margin: 0px;
@@ -36,7 +37,8 @@
 
 /* line 10, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
 .subtask:hover {
-  border-bottom: 2px solid #5e5e5e;
+  border-bottom: 1px solid #5e5e5e;
+  // font-size: 150%;
 }
 
 /* line 13, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
@@ -52,6 +54,7 @@
 .subtask-done, .subtask-delete {
   color: #5e5e5e;
   border-bottom-color: green;
+  text-decoration:line-through;
 }
 /* line 21, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
 .subtask-done:hover, .subtask-delete:hover {
@@ -90,11 +93,13 @@
 .action-done, a.action-delete {
   color: #5e5e5e;
   font-weight: normal;
+
+
 }
 
 /* line 46, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
 .subtask-title {
-  font-weight: bold;
+
   color: #2a2b2b;
 }
 
@@ -122,14 +127,15 @@
 
 /* line 67, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/subtasks.sass */
 .subtask-create form input {
-  border: 1px solid #5e5e5e;
+  // border: 1px solid #5e5e5e;
   
   margin: 0px;
   margin-bottom: 5px;
   padding: 8px;
 
   box-sizing: border-box;
-  font-weight: bold;
+  // font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.43)
 }
 
 /* line 1, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/tasks.sass */
@@ -197,15 +203,22 @@ li form input {
   margin: 10px 5px;
   text-decoration: none;
   color: #5e5e5e;
+
 }
 
 /* line 52, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/tasks.sass */
 .task-time {
-  font-size: 150%;
+  font-size: 127%;
   font-weight: bold;
 }
 
 /* line 56, /Users/brenothales/rails_apps/2015/js/testeapagar/app/assets/stylesheets/tasks.sass */
 .task-delete {
   margin-top: 15px;
+}
+
+.finalizadolink {
+  font-weight: normal;
+  color: #8D8D8D;
+  text-decoration: line-through;
 }
