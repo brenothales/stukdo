@@ -40,13 +40,18 @@
             <%= task.content %>  <span class="label label-danger">Fazer</span>
             <% end %> <br>
             <b><%= task.descricao if task.descricao %></b>
+            <% if task.url.present? %>  
+              <%= link_to task.url, target: "_blank" do %>
+               <%= task.url %> <i class="fa fa-external-link"></i>
+              <% end -%>
+            <% end -%>
           </td>
           <td>
-            <ul id="selector">
+            <ol id="selector">
               <% task.subtasks.each do |subtask| %>
                 <li> <%= subtask.name %></li>
               <% end -%>
-            </ul>
+            </ol>
           </td>
 
           <td>

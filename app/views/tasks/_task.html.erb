@@ -22,7 +22,7 @@
 
 
 <div  id="container_tasks" class="panel-postit postit" data-id="<%= task.id %>" >
-	<div class="<%='postit1' if task.state == "doing"%><%='postit2 ' if task.state == "to_do"%> 
+	<div class="<%='postit1' if task.state == "doing"%><%='postit2 ' if task.state == "to_do"%>
 		<%='postit4' if task.state == "done"%> <%='postit3' if task.public == true %>">
 		<%= link_to "x", task_path(task), method: :delete, class: "pull-right" %>
 		<div class="panel-postit">
@@ -79,9 +79,14 @@
 					<div  class="">
 						<p class="<%= "texto" if task.descricao.length > 144 %>" > <%= raw(task.descricao) %></p>
 					<% if task.url.present? %>	
-						<%= link_to task.url, target: "_blank" do %>
-							<i class="fa fa-external-link"></i>
-						<% end %> 
+						<div class="input-group">
+					  <input type="text" class="form-control" placeholder="<%= task.url %>" aria-describedby="basic-addon2"  value="<%= task.url %>">
+					  <span class="input-group-addon" id="basic-addon2">
+					  	<%= link_to task.url, target: "_blank" do %>
+						  	 <i class="fa fa-external-link"></i>
+							<% end -%>
+						  </span>
+					</div>
 					<% end -%>
 					</div> 
 				</div>

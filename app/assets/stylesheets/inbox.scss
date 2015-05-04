@@ -54,6 +54,9 @@
     margin-bottom: -5px;
     padding-bottom: 30px;
   }
+  .fa-stack-1x, .fa-stack-2x{
+      left: -1px;
+  }
 }
 
 .navbar-fixed-bottom .dropdown .dropdown-menu {
@@ -72,7 +75,7 @@
   .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: 0;
+    left: -1;
     z-index: 1000;
     display: none;
     float: left;
