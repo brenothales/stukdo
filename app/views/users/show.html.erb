@@ -25,6 +25,7 @@
   <thead>
     <tr>
       <th class="col-md-3">Tarefa</th>
+      <th class="col-md-2">Status</th>
       <th class="col-md-2">Subtarefas</th>
       <th class="col-md-1">Última Alteração</th>
       <th class="col-md-2">Criadas</th>
@@ -35,60 +36,64 @@
     <% @user.tasks.each do |task| %>
     <tr>
       <td>
-        <div class="po-markup">
-        <% if task.state == "done" %>
-        <span class="po-link"><%= task.content %> </span> <span class="label label-success">Finalizado</span>
-        <% elsif task.state == "doing" %>
-        <span class="po-link"><%= task.content %> </span> <span class="label label-warning">Fazendo</span>
-        <% else  %>
-        <span class="po-link"><%= task.content %> </span>  <span class="label label-danger">Fazer</span>
-        <% end %> <br>
+        <div class="po-markup"> 
+        <span class="po-link  <%= 'label label-info' if task.descricao.present?  %>  ">  <i class=" <%= 'fa fa-info' if task.descricao.present?  %>"></i> </span> <%= task.content %>
+        <% if task.descricao.present?  %>
+             
         
-  
-  <div class="po-content hidden">
-    <div class="po-title">
-      <%= image_tag(task.user.avatar.url(:thumb),  width:"20", height:"20") %>
-      <%= task.user.nome  if task.user.nome %> <%= task.user.sobrenome  if task.user.sobrenome %>
-    </div> 
+        <div class="po-content hidden">
+          <div class="po-title">
+            <%= image_tag(task.user.avatar.url(:thumb),  width:"20", height:"20") %>
+            <%= task.user.nome  if task.user.nome %> <%= task.user.sobrenome  if task.user.sobrenome %>
+          </div> 
 
-    <div class="po-body">
-      <p>
-        <%= task.descricao if task.descricao %>
-      </p>
+          <div class="po-body">
+            <p>
+              <%= task.descricao if task.descricao %>
+            </p>
 
-    </div>
-  </div>
-</div>
-
-<br>
-    <% if task.url.present? %>  
+          </div>
+        </div>
+      </div> 
+      <% end -%>  <br>
+      <% if task.url.present? %>  
       <div class="input-group">
-      <input type="text" class="form-control" placeholder="<%= task.url %>" aria-describedby="basic-addon2"  value="<%= task.url %>">
-      <span class="input-group-addon" id="basic-addon2">
-        <%= link_to task.url, target: "_blank" do %>
-           <i class="fa fa-external-link"></i>
-        <% end -%>
-        </span>
-    </div>
-    <% end -%>
-
-      </td>
-      <td>
-        <ol id="selector">
-          <% task.subtasks.each do |subtask| %>
-          <li> <%= subtask.name %></li>
+        <input type="text" class="form-control" placeholder="<%= task.url %>" aria-describedby="basic-addon2"  value="<%= task.url %>">
+        <span class="input-group-addon" id="basic-addon2">
+          <%= link_to task.url, target: "_blank" do %>
+          <i class="fa fa-external-link"></i>
           <% end -%>
-        </ol>
-      </td>
+        </span>
+      </div>
+      <% end -%>
+    </td>
+    <td> 
+      <% if task.state == "done" %>
+      <span class="label label-success">Finalizado</span>
+      <% elsif task.state == "doing" %>
+      <span class="label label-warning">Fazendo</span>
+      <% else  %>
+      <span class="label label-danger">Fazer</span>
+      <% end %> <br>
 
-      <td>
-        <%= time_ago_in_words(task.updated_at) %>
-      </td>
-      <td>
-        <%= time_ago_in_words(task.created_at) %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
+
+    </td>
+    <td>
+      <ol id="selector">
+        <% task.subtasks.each do |subtask| %>
+        <li> <%= subtask.name %></li>
+        <% end -%>
+      </ol>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(task.updated_at) %>
+    </td>
+    <td>
+      <%= time_ago_in_words(task.created_at) %>
+    </td>
+  </tr>
+  <% end %>
+</tbody>
 </table>
 </div>
