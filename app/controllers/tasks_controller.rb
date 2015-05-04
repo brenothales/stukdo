@@ -56,7 +56,7 @@ class TasksController < ApplicationController
   def change
     @task.update_attributes(state: params[:state])
       respond_to do |format|
-      format.html {redirect_to tasks_path, notice: "Task Update"}
+      format.html {redirect_to tasks_path} #notice: "Tarefa atualizda com sucesso"
     end
     @task.subtasks.each do |stk|
       if stk.work?
@@ -106,6 +106,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:content, :state, :descricao, :url)
+      params.require(:task).permit(:content, :state, :descricao, :url, :public)
     end
 end

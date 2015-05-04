@@ -1,16 +1,45 @@
+
+
+<!-- <div class="po-markup">
+      <br>
+        <a href="http://cnn.com" class="po-link">cnn.com</a>
+        ←  popover with favicon and HTML coded site information.
+
+        <div class="po-content hidden">
+          <div class="po-title">
+            <img src="http://g.etfv.co/http://www.cnn.com" alt="Google" width="16" height="16" />
+            CNN News
+            </div> 
+            
+            <div class="po-body">
+              <p>
+                  CNN.com is among the world's leaders in online news and information delivery. Staffed <strong>24 hours </strong>, seven days a week by a dedicated staff in CNN's world headquarters in Atlanta, Georgia, and in bureaus worldwide.
+              </p>
+              
+              </div>
+              </div>
+        </div> -->
+
+
 <div  id="container_tasks" class="panel-postit postit" data-id="<%= task.id %>" >
-	<div class="<%='postit2' if task.state == "to_do"%> <%='postit1' if task.state == "doing"%><%='postit4' if task.state == "done"%>">
+	<div class="<%='postit1' if task.state == "doing"%><%='postit2 ' if task.state == "to_do"%> 
+		<%='postit4' if task.state == "done"%> <%='postit3' if task.public == true %>">
 		<%= link_to "x", task_path(task), method: :delete, class: "pull-right" %>
 		<div class="panel-postit">
 			<div class="postit-heading">
 				<h3 class="pull-left"> <div class="fixe"></div>
-					<%= task.content %> <%= link_to edit_task_path(task) do %>
+					 <% if task.public == true %>
+					 <i class="fa fa-lock"></i>
+					 <% end -%>
+					 <%= task.content %> <%= link_to edit_task_path(task) do %>
 					<i class="fa fa-pencil"></i>
-					<% end %>
-					<small class="pull-right"><i class="fa fa-clock-o"></i> <%= time_ago_in_words(task.created_at) %>
-					</small>
+					<% end %> <br>
+					<span class="tempo  pull-left"><i class="fa fa-clock-o"></i> <%= time_ago_in_words(task.created_at) %> 
+					</span> 
+					<span class="tempo  pull-right"><i class="fa fa-clock-o"></i> <%= 'Atualizado' if task.updated_at %> <%= time_ago_in_words(task.updated_at) if task.updated_at %>
+					</span>
 				</h3>
-				<span class="pull-right clickable"><i class="fa fa-chevron-down"></i></span>
+				<span class="pull-right clickable"><i class="fa fa-chevron-up"></i></span>
 			</div> 
 		</div> 
 		<div class="postit-body">
@@ -48,8 +77,12 @@
 				<% if task.descricao.present? or task.url.present? %>
 				<div class="tab-pane " id="<%= raw(task.id) %><%= raw(current_user.id) %>">
 					<div  class="">
-						<p> <%= raw(task.descricao) %></p>
-						<small><%= task.url %></small>
+						<p class="<%= "texto" if task.descricao.length > 144 %>" > <%= raw(task.descricao) %></p>
+					<% if task.url.present? %>	
+						<%= link_to task.url, target: "_blank" do %>
+							<i class="fa fa-external-link"></i>
+						<% end %> 
+					<% end -%>
 					</div> 
 				</div>
 				<% end -%>

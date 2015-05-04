@@ -1,7 +1,7 @@
 
 <h1>
 
-  <%= @user.tasks.count %> Projetos de 
+  <%= @user.tasks.public_tasks.count %> Projetos Público de 
     <% if @user.nome != "" %>
       <%= @user.nome %> <%= @user.sobrenome %>
     <% else %>

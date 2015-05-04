@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419015512) do
+ActiveRecord::Schema.define(version: 20150503031813) do
 
   create_table "logs", force: :cascade do |t|
     t.integer  "subtask_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150419015512) do
     t.integer  "priority"
     t.text     "descricao"
     t.string   "url"
+    t.boolean  "public",       default: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(version: 20150419015512) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "tasks_count",            default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

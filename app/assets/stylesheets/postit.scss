@@ -3,9 +3,18 @@ cursor: grab;
 cursor: -webkit-grab;
 cursor: -moz-grabbing;
 // cursor: move;
+.tempo{
+  font-weight: normal;
+  color: #777;
+  font-size: 12px;
+  margin-top: 1px;
+}
 
 p{
 	font-size:150%;
+}
+.texto{
+	font-size:116% !important;
 }
 
 .fixe{
@@ -63,6 +72,9 @@ h3 {
 	  text-decoration: none;
 	}
 	h3 {border-top-color: #dbd581;}
+	.form-control{
+		  border: 1px solid #F6DB2A !important;
+	}
 }
 
 .postit2 {background: #FDD7DB;
@@ -70,17 +82,33 @@ h3 {
 	  color: rgb(243, 18, 64);
 	  text-decoration: none;
 	}
+	h3 {border-top-color: #E6A1A8;}
+	.form-control{
+	  border: 1px solid rgba(209, 44, 61, 0.46);
+	}	
 }
-.postit2 h3 {border-top-color: #E6A1A8;}
-.postit3 {background: #EAF763;}
-.postit3 h3 {border-top-color: #72A201;}
+
+
 .postit4 {background: #B9EAF6;
 	a {
 	  color: #0EA3EB;
-	  text-decoration: none;
+	}
+	.subtask-done, .subtask-delete{
+		text-decoration: none !important;
 	}
 }
 .postit4 h3 {border-top-color: #6DB4C4;}
+.postit3 {background: #EAF763;
+	a{color: #37890C;
+	  text-decoration: none;
+	}
+	h3 {border-top-color: #72A201;}
+	.form-control{
+	border: 1px solid rgba(150, 162, 28, 0.73);
+	}
+}
+
+
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
   color: #555;

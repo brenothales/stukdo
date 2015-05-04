@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :tasks, dependent: :destroy
-
+  scope :with_public_tasks, -> { includes(:tasks).includes(tasks: :subtasks).where(tasks: {public: false})}
   validates_presence_of :nome, :sobrenome, :celular, :funcacao, :setor, :username
   validates_uniqueness_of :username, :celular
   

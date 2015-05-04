@@ -1,4 +1,6 @@
 class Task < ActiveRecord::Base
+	
+
 	belongs_to :user
 
 	has_many :subtasks, :dependent => :destroy
@@ -9,6 +11,7 @@ class Task < ActiveRecord::Base
 	validates :user_id, presence: true
 
 	default_scope { order("priority ASC") }
+	scope :public_tasks, -> { where(public: false)}
 
 
 	auto_html_for :content do

@@ -11,7 +11,17 @@
 <body>
 <%= render "layouts/header" %> 
 <div class="container">
-	<%= yield %>
+<div>
+  <% flash.each do |key, value| %>
+    <div class="<%= flash_class(key) %> fade in">
+      <a href="#" data-dismiss="alert" class="close">×</a>
+      <%= value %>
+    </div>
+  <% end %>
+</div>
+ <!-- render 'layouts/flash_messages' %> -->
+<%= yield %>
+
 </div> 
 
 </body>
