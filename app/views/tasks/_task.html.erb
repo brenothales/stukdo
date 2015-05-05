@@ -1,7 +1,8 @@
 <div  id="container_tasks" class="panel-postit postit" data-id="<%= task.id %>" >
 	<div class="<%='postit1' if task.state == "doing"%><%='postit2 ' if task.state == "to_do"%>
 		<%='postit4' if task.state == "done"%> <%='postit3' if task.public == true %>">
-		<%= link_to "x", task_path(task), method: :delete, class: "pull-right" %>
+		<%= link_to "x", task_path(task), method: :delete, data: { confirm: 'Tem a certeza?' }, class: "pull-right" %>
+
 		<div class="panel-postit">
 			<div class="postit-heading">
 				<h3 class="pull-left"> <div class="fixe"></div>
@@ -16,10 +17,10 @@
 					<span class="tempo  pull-right"><i class="fa fa-clock-o"></i> <%= 'Atualizado' if task.updated_at %> <%= time_ago_in_words(task.updated_at) if task.updated_at %>
 					</span>
 				</h3>
-				<span class="pull-right clickable"><i class="fa fa-chevron-up"></i></span>
+				<span class="pull-right clickable <%= 'panel-collapsed' if task.state == "done" %>"><i class="fa fa-chevron-up <%= 'fa-chevron-down' if task.state == "done" %>"></i></span> 
 			</div> 
 		</div> 
-		<div class="postit-body">
+		<div class="postit-body" style="<%= 'display: none;' if task.state == "done" %>" >
 			<div class=" task-time task-time-<%= task.id %>">  <%= format_logged(task.logged) %></div> 
 			
 			<ul class="nav nav-tabs">
@@ -89,4 +90,3 @@
 		</div> 
 	</div> 
 </div> 
-
