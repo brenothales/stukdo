@@ -69,3 +69,18 @@ body{
   background-color:#dff0d8;
   border-color:#d6e9c6;
 }
+.navbar-default .navbar-toggle{
+    border-color: transparent;
+}
+
+.navbar-default .navbar-toggle .icon-bar{
+    background-color: #FFF;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+    background-color: #2196F3;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+     border-color: transparent; 
+  background-color: rgb(12, 77, 128);
+}
