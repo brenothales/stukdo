@@ -66,3 +66,17 @@ $(document).ready(function() {
   });
 
 });
+
+
+
+$(function() {
+    var head = $('#header')
+    var top = head.css('top');
+    $(window).scroll(function() {
+      if($(this).scrollTop() > 10) {
+        head.stop().animate({'top' : '0px'}, 500);
+      } else {
+        head.stop().animate({'top' : top}, 500);
+      }
+    });
+  });
