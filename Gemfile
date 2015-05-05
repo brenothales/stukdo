@@ -56,3 +56,4 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'auto_html'
 gem 'hirb'
+gem 'country_select'
