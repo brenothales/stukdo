@@ -12,8 +12,8 @@
                 <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                 <div class="avatar">
                     <img src="" alt="" />
-                    <%= image_tag(u.avatar.url(:thumb), class:"src-image" )%>
                 </div>
+                <%= image_tag(u.avatar.url(:thumb), class:"src-image" )%>
                 <div class="content">
                     <p> <% unless u.nome.empty? -%>
                            <%= u.nome %> <%= u.sobrenome %>
