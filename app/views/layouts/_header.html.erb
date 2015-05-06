@@ -19,16 +19,17 @@
         <li><%= link_to "Visão Geral", users_path %></li>
         <% end %>
       </ul> 
-
+      <% if current_user %>
       <div class="col-lg-8" style="margin-top:7px" >
         <form action="#" method="get">
             <div class="input-group">
                 <span class="input-group-btn">
-                <input class="form-control" type="text" autocomplete="off" id="system-search" name="q" autofocus="autofocus" required >
+                <input class="form-control" autocomplete="off" id="system-search" name="q" autofocus="autofocus" required >
                 </span>
             </div>
         </form>
       </div> 
+      <% end -%>
   
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>

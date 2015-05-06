@@ -53,16 +53,3 @@ body{
 .navbar-default .navbar-toggle .icon-bar{
   background-color: #FFF;
 }
-
-
-
-
-@media (max-width: 768px){
-  .navbar-default .navbar-collapse, .navbar-default .navbar-form{
-   border-color: transparent; 
-   background-color: rgb(12, 77, 128);
-  }
-  .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
-    background-color: #2196F3;
-  }
-}

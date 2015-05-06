@@ -1,37 +1,37 @@
+
+  <div class="row ">
 <h1>
   Visão Geral 
   <small>Acompanhamento de Tarefas</small>
 </h1>
-<table class="table table-striped table-list-search">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Usuário</th>
-      <th>Número de tarefas públicas</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |u| %>
-      <tr>
-        <td>
-          <div class="round-image-50"><%= image_tag(u.avatar.url(:thumb)) %></div>
-        </td>
-        <td>
-          <% unless u.nome.empty? -%>
-           <%= u.nome %>
-           <%= u.sobrenome %>
-          <% else %>
-           <%= u.email %>
-          <% end %>
+  </div>
+    <div class="row searchable-container">
+      <% @users.each do |u| %>
+        <div class="col-sm-3">
+            <div class="card items">
+                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                <div class="avatar">
+                    <img src="" alt="" />
+                    <%= image_tag(u.avatar.url(:thumb), class:"src-image" )%>
+                </div>
+                <div class="content">
+                    <p> <% unless u.nome.empty? -%>
+                           <%= u.nome %> <%= u.sobrenome %>
+                        <% else %>
+                           <%= u.email %>
+                        <% end %> <br>
+                        <%= u.setor unless u.setor.empty? %> <br>
+                        <%= u.funcacao unless u.funcacao.empty? %> 
+                    </p>
+                    <p>
+                      <button type="button" class="btn btn-default"><%= link_to "Tarefas", u %>  <%= u.tasks.public_tasks.count %>
+                      </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+      <% end -%>
+    </div>
 
-        </td>
-        <td>
-          <div class='btn btn-info'>
-          <span class="badge"><%= link_to "Conferir", u %>  <%= u.tasks.public_tasks.count %></span>
-          </div>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
 
