@@ -20,9 +20,15 @@
                         <% else %>
                            <%= u.email %>
                         <% end %> <br>
-                        <%= u.setor if u.setor.present? %> <br>
-                        <%= u.funcacao if u.funcacao.present? %> 
-                        <%= u.celular if u.celular.present? %> 
+                        <i class="fa fa-mobile"></i> <%= u.celular if u.celular.present? %> <br>  
+                        <i class="fa fa-map-marker"></i> <%= u.setor if u.setor.present? %> <br>
+                        <% if u.formacao.present? %>
+                        <i class="fa fa-tag"></i></i> <%= u.formacao %> <br>
+                        <% end -%>
+                          <% if u.funcacao.present? %>
+                        <i class="fa fa-graduation-cap"></i> <%= u.funcacao %> <br>
+                        <% end -%>
+                        
                     </p>
                     <p>
                       <button type="button" class="btn btn-default"><%= link_to "Tarefas", u %>  <%= u.tasks.public_tasks.count %>
