@@ -1,4 +1,4 @@
-<div  id="container_tasks" class="panel-postit postit" data-id="<%= task.id %>" >
+<div  id="container_tasks" class="panel-postit postit items" data-id="<%= task.id %>" >
 	<div class="<%='postit1' if task.state == "doing"%><%='postit2 ' if task.state == "to_do"%>
 		<%='postit4' if task.state == "done"%> <%='postit3' if task.public == true %>">
 		<%= link_to "x", task_path(task), method: :delete, data: { confirm: 'Tem a certeza?' }, class: "pull-right" %>
