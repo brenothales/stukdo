@@ -4,16 +4,16 @@
   Visão Geral 
   <small>Acompanhamento de Tarefas</small>
 </h1>
-  </div>
+  
     <div class="row searchable-container">
       <% @users.each do |u| %>
-        <div class="col-sm-3">
-            <div class="card items">
+        <div class="col-sm-3 pull-left">
+            <div class="card items ">
                 <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                 <div class="avatar">
                     <img src="" alt="" />
                 </div>
-                <%= image_tag(u.avatar.url(:thumb), class:"src-image" )%>
+                <%= image_tag(u.avatar.url(:thumb), class:"src-image" )%> 
                 <div class="content">
                     <p> <% unless u.nome.empty? -%>
                            <%= u.nome %> <%= u.sobrenome %>
@@ -22,12 +22,17 @@
                         <% end %> <br>
                         <i class="fa fa-mobile"></i> <%= u.celular if u.celular.present? %> <br>  
                         <i class="fa fa-map-marker"></i> <%= u.setor if u.setor.present? %> <br>
+                        <% if u.funcacao.present? %>
+                        <i class="fa fa-graduation-cap"></i> <%= u.funcacao %> <br>
+                        <% else -%>
+                        <br>
+                        <% end -%>
                         <% if u.formacao.present? %>
                         <i class="fa fa-tag"></i></i> <%= u.formacao %> <br>
+                        <% else -%>
+                        <br>
                         <% end -%>
-                          <% if u.funcacao.present? %>
-                        <i class="fa fa-graduation-cap"></i> <%= u.funcacao %> <br>
-                        <% end -%>
+
                         
                     </p>
                     <p>
@@ -44,3 +49,4 @@
 
 
 
+</div>
