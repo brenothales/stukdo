@@ -1,95 +1,56 @@
+    <tr>
+      <td>
+         <b><%= task.content %></b> <br>
+         <p><%= task.descricao %></p>
+      
+      <% if task.url.present? %>  
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="<%= task.url %>" aria-describedby="basic-addon2"  value="<%= task.url %>">
+        <span class="input-group-addon" id="basic-addon2">
+          <%= link_to task.url, target: "_blank" do %>
+          <i class="fa fa-external-link"></i>
+          <% end -%>
+        </span>
+      </div>
+      <% end -%>
+    </td>
+    <td> 
+      <% if task.state == "done" %>
+      <span class="label label-success">Finalizado</span>
+      <% elsif task.state == "doing" %>
+      <span class="label label-warning">Fazendo</span>
+      <% else  %>
+      <span class="label label-danger">Fazer</span>
+      <% end %> <br>
 
 
-<div  id="container_tasks" class="panel-postit postit" data-id="<%= task.id %>" >
-	<div class="<%='postit1' if task.state == "doing"%> <%='postit3' if task.public == true %>">
-		<div class="panel-postit">
-			<div class="postit-heading">
-				<h3 class="pull-left"> <div class="fixe"></div>
-					<% if task.public == true %>
-					<i class="fa fa-lock"></i>
-					<% end -%>
-					<%= task.content %> <%= link_to edit_task_path(task) do %>
-					<% end %> <br>
-					<span class="tempo  pull-left"><i class="fa fa-clock-o"></i> <%= time_ago_in_words(task.created_at) %> 
-					</span> 
-					<span class="tempo  pull-right"><i class="fa fa-clock-o"></i> <%= 'Atualizado' if task.updated_at %> <%= time_ago_in_words(task.updated_at) if task.updated_at %>
-					</span>
-				</h3>
-				<span class="pull-right clickable"><i class="fa fa-chevron-up"></i></span> 
-			</div> 
-		</div> 
-		<div class="postit-body">
-			<div class=" task-time task-time-<%= task.id %>">  <%= format_logged(task.logged) %></div> 
-			
-			<ul class="nav nav-tabs">
-				<li class="active"  ><a href="#<%= task.id %>" data-toggle="tab">Subtarefa</a></li>
-				<% if task.descricao.present? or task.url.present? %>
-				<li class=""><a href="#<%= raw(task.id) %><%= raw(current_user.id) %>" data-toggle="tab">Anotações</a></li>
-				<% end -%>
-			</ul>
-			<div class="tab-content">
-				<div class="tab-pane active" id="<%= raw(task.id) %>">
-					<div  class="">
-						
-						<!-- link_to 'delete task', tasks_path(id: @task.id, format: 'js'), class: 'task-delete', remote: true, method: :delete %> -->
-						
+    </td>
+    <td>
+      <ol id="selector">
+        <% task.subtasks.each do |subtask| %>
+        <div class="subtask-title">
+            <% if subtask.work?  %>
+            <span class="icon"><i class="laranjaicon fa fa-refresh fa-spin"></i></span>
+            <% elsif subtask.complete? %>
+            <span class="icon "><i class="verdeicon fa fa-check fa-1x"></i></span>
+            <% else %>
+            <span class="icon">&#9417;</span>
+            <% end %> 
+            <span><%= subtask.name %> </span>
+            <% if !subtask.logs.empty? %>
+            <!-- <span class="show-logs">&#8609;</span> -->
+            <% end %>
+        <div class="subtask-logs logs-<%=subtask.id %>">
+          <%= render subtask.logs %>
+        </div>
+        </div>
+        <% end -%>
+      </ol>
+    </td>
 
-						<% task.subtasks.each do |subtask| %>
-	              <div class="subtask-title">
-								  <% if subtask.work?  %>
-									  <span class="icon"><i class="laranjaicon fa fa-refresh fa-spin"></i></span>
-								  <% elsif subtask.complete? %>
-									  <span class="icon "><i class="verdeicon fa fa-check fa-1x"></i></span>
-								  <% else %>
-									  <span class="icon">&#9417;</span>
-								  <% end %> 
-									  <span><%= subtask.name %> </span>
-								  <% if !subtask.logs.empty? %>
-									  <span class="show-logs">&#8609;</span>
-								  <% end %>
-								</div>
-              <% end -%>
-
-					</div> 
-				</div>
-
-				<% if task.descricao.present? or task.url.present? %>
-				<div class="tab-pane " id="<%= raw(task.id) %><%= raw(current_user.id) %>">
-					<div  class="">
-						<p class="<%= "texto" if task.descricao.length > 144 %>" > <%= raw(task.descricao) %></p>
-						<% if task.url.present? %>	
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="<%= task.url %>" aria-describedby="basic-addon2"  value="<%= task.url %>">
-							<span class="input-group-addon" id="basic-addon2">
-								<%= link_to task.url, target: "_blank" do %>
-								<i class="fa fa-external-link"></i>
-								<% end -%>
-							</span>
-						</div>
-						<% end -%>
-					</div> 
-				</div>
-				<% end -%>
-			</div>
-
-			<div  class=" text-center">
-				<% if task.state == "doing" %>
-				<div>
-					<div class="btn-group btn-group-justified">
-						<%= link_to "<i class='fa fa-arrow-left'></i>".html_safe, change_task_path(task, state: "to_do"), method: :put, class: "btn btn-info btn-md btn-block" %>
-						<%= link_to "<i class='fa fa-arrow-right'></i>".html_safe, change_task_path(task, state: "done"), method: :put, class: "btn btn-info btn-md btn-block" %>
-					</div>
-				</div>
-				<% elsif task.state == "done" %>
-				<%= link_to "<i class='fa fa-arrow-left'></i>".html_safe, change_task_path(task, state: "doing"), method: :put, class: "btn btn-info btn-md btn-block" %>
-				<% else %>
-				<%= link_to "<i class='fa fa-arrow-right'></i>".html_safe, change_task_path(task, state: "doing"), method: :put, class: "btn btn-info btn-md btn-block" %>
-
-				<% end %>
-
-			</div>
-		</div> 
-	</div> 
-</div> 
-
-<% end -%>
+    <td>
+      <%= time_ago_in_words(task.updated_at) %>
+    </td>
+    <td>
+      <%= time_ago_in_words(task.created_at) %>
+    </td>
