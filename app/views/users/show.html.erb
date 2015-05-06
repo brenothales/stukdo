@@ -36,9 +36,9 @@
     <% @user.tasks.each do |task| %>
     <tr>
       <td>
-        <p>
-          <%= task.descricao if task.descricao %>
-        </p>
+         <b><%= task.content %></b> <br>
+         <p><%= task.descricao %></p>
+      
       <% if task.url.present? %>  
       <div class="input-group">
         <input type="text" class="form-control" placeholder="<%= task.url %>" aria-describedby="basic-addon2"  value="<%= task.url %>">
