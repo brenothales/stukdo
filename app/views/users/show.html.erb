@@ -32,10 +32,11 @@
     <thead>
       <tr>
         <th class="col-md-3">Tarefa</th>
-        <th class="col-md-2">Status</th>
         <th class="col-md-2">Subtarefas</th>
+        <th class="col-md-2">Status</th>
         <th class="col-md-1">Última Alteração</th>
         <th class="col-md-2">Criadas</th>
+        
 
       </tr>
     </thead>
@@ -56,17 +57,6 @@
           </span>
         </div>
         <% end -%>
-      </td>
-      <td> 
-        <% if task.state == "done" %>
-        <span class="label label-success">Finalizado</span>
-        <% elsif task.state == "doing" %>
-        <span class="label label-warning">Fazendo</span>
-        <% else  %>
-        <span class="label label-danger">Fazer</span>
-        <% end %> <br>
-
-
       </td>
       <td>
         <ol id="selector">
@@ -89,6 +79,17 @@
           </div>
           <% end -%>
         </ol>
+      </td>
+      <td> 
+        <% if task.state == "done" %>
+        <span class="label label-success">Finalizado</span>
+        <% elsif task.state == "doing" %>
+        <span class="label label-warning">Fazendo</span>
+        <% else  %>
+        <span class="label label-danger">Fazer</span>
+        <% end %> <br>
+
+
       </td>
 
       <td>
