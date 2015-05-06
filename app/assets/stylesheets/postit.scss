@@ -1,7 +1,5 @@
 .postit{
-cursor: grab;
-cursor: -webkit-grab;
-cursor: -moz-grabbing;
+
 // cursor: move;
 .tempo{
   font-weight: normal;
@@ -38,6 +36,9 @@ h3 {
   font-weight: normal;
   line-height: 1.5;
   width: 100%;
+  cursor: grab;
+cursor: -webkit-grab;
+cursor: -moz-grabbing;
 
   p{
   	margin-bottom: -6px

@@ -36,26 +36,9 @@
     <% @user.tasks.each do |task| %>
     <tr>
       <td>
-        <div class="po-markup"> 
-        <span class="po-link  <%= 'label label-info' if task.descricao.present?  %>  ">  <i class=" <%= 'fa fa-info' if task.descricao.present?  %>"></i> </span> <%= task.content %>
-        <% if task.descricao.present?  %>
-             
-        
-        <div class="po-content hidden">
-          <div class="po-title">
-            <%= image_tag(task.user.avatar.url(:thumb),  width:"20", height:"20") %>
-            <%= task.user.nome  if task.user.nome %> <%= task.user.sobrenome  if task.user.sobrenome %>
-          </div> 
-
-          <div class="po-body">
-            <p>
-              <%= task.descricao if task.descricao %>
-            </p>
-
-          </div>
-        </div>
-      </div> 
-      <% end -%>  <br>
+        <p>
+          <%= task.descricao if task.descricao %>
+        </p>
       <% if task.url.present? %>  
       <div class="input-group">
         <input type="text" class="form-control" placeholder="<%= task.url %>" aria-describedby="basic-addon2"  value="<%= task.url %>">
@@ -81,7 +64,22 @@
     <td>
       <ol id="selector">
         <% task.subtasks.each do |subtask| %>
-        <li> <%= subtask.name %></li>
+        <div class="subtask-title">
+            <% if subtask.work?  %>
+            <span class="icon"><i class="laranjaicon fa fa-refresh fa-spin"></i></span>
+            <% elsif subtask.complete? %>
+            <span class="icon "><i class="verdeicon fa fa-check fa-1x"></i></span>
+            <% else %>
+            <span class="icon">&#9417;</span>
+            <% end %> 
+            <span><%= subtask.name %> </span>
+            <% if !subtask.logs.empty? %>
+            <!-- <span class="show-logs">&#8609;</span> -->
+            <% end %>
+        <div class="subtask-logs logs-<%=subtask.id %>">
+          <%= render subtask.logs %>
+        </div>
+        </div>
         <% end -%>
       </ol>
     </td>
