@@ -38,7 +38,7 @@
 						<div class="subtask-create">
 
 							<%= form_tag('/subtasks', method: :post, remote: true) do %>
-							<%= text_field_tag(:name, nil, placeholder: 'Subtarefa', class: "form-control", required: 'true') %>
+							<%= text_field_tag(:name, nil, placeholder: 'digite e pressione enter...', class: "form-control", required: 'true', autocomplete: 'off') %>
 							<!-- text_field_tag(:task_id, "#{@to_do.empty? ? 0 : @to_do.first.id}") %> -->
 							<%= hidden_field_tag :task_id, task.id %>
 							<% end -%>
