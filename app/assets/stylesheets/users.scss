@@ -1,6 +1,37 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+} 
+/* entypo */
+[class*="fontawesome-"]:before {
+  font-family: 'fontawesome', sans-serif;
+} 
+
+// Variables
+
+//// Sizes
+$size-w: 354px;
+$size-h: 378px;
+$limit: 230px;
+
+//// Colors
+$green-color: rgb(151,206,109);
+$white-color: white;
+$blue-color: rgb(18,133,241);
+$orange-color: rgb(243,144,62);
+$grey: rgb(226,232,238);
+$light-grey: rgb(234,238,246);
+$blue-side:rgb(93,150,252);
+$gradient: rgb(40,202,202),rgb(67,157,202);
+
+// Mixins ( from : http://codepen.io/chriscoyier/blog/some-mini-sass-mixins-i-like)
+@mixin centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
 
 .src-image {
   display: none;
@@ -15,13 +46,62 @@
   padding: 0;
   background-color: #247BC0;
   color: #FBFAF7;
+  font-family: entypo;
 
   display: inline-block;
   float: left;
   margin: 0px 16px 16px 0px;
+  width: $size-w;
+  height: $size-h;
+  box-shadow: 0 0 80px rgba(0,0,0,.4), 0 0 1px rgba(0,0,0,.5);
+
+  transition: all .3s ease;
+  transform: scale(.6);
+  opacity: 0;
+
+  &.activated{
+    transform: scale(1); 
+    opacity: 1;
+
+    animation: zoomed 1s ease 1s;
+  }
+  &.activated-zoom{
+    transform: scale(1.2);
+    opacity: 1;
+  }
 
 
+  -webkit-font-smoothing: antialiased;
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+
+
+  h2, h3{
+      text-transform: capitalize;
+      line-height: 0.5;
+      color: darken($white-color, 15%);
+    }
 }
+// .content{
+    
+//     font-family: sans-serif !important;
+//     color: rgba(255, 255, 255, 0.69) !important;
+
+// h2{
+//   text-transform: capitalize;
+//   font-size: 1.5em;
+//   margin-top: 10px;
+//   margin-bottom: 5px;
+//   font-weight: 100 !important;
+// }
+
+// h3{
+//   text-transform: capitalize;
+//   font-size: 12px;
+//   margin-top: 5px;
+// }
+
+// }
 
 .card .header-bg {
   /* This stretches the canvas across the entire hero unit */
@@ -29,14 +109,14 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 100px;
   border-bottom: 1px #FFF solid;
   /* This positions the canvas under the text */
   z-index: 1;
 }
 .card .avatar {
   position: relative;
-  margin-top: 15px;
+  margin-top: 48px;
   z-index: 100;
 }
 
@@ -48,3 +128,4 @@
   border-radius: 50%;
   border: 5px solid white;
 }
+

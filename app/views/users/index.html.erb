@@ -13,13 +13,17 @@
           <!-- <img src="" alt="" /> -->
           <%= image_tag((), alt: "") %>
         </div>
-        <%= image_tag(u.avatar.url(:thumb), class:"src-image" )%> <br>
+        <% if u.avatar.present? %>
+          <%= image_tag(u.avatar.url(:thumb), class:"src-image" )%> 
+        <% else %>
+          <%= image_tag(('avatars/avatar.png'), class:"src-image" ) %> 
+        <% end -%>
         <div class="content">
-          <p> <% unless u.nome.empty? -%>
+          <h2> <% unless u.nome.empty? -%>
            <%= u.nome %> <%= u.sobrenome %>
            <% else %>
            <%= u.email %>
-           <% end %> <br>
+           <% end %> </h2>
            <i class="fa fa-mobile"></i> <%= u.celular if u.celular.present? %> <br>  
            <i class="fa fa-map-marker"></i> <%= u.setor if u.setor.present? %> <br>
            <% if u.funcacao.present? %>

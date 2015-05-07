@@ -383,3 +383,51 @@ $(document).ready(function() {
 });
 
 
+/*
+  I used http://randomuser.me/ to generate 
+  a random user. Just to add some fanciness.
+*/
+
+$(document).ready(function(){
+  $.ajax({
+    url: 'http://api.randomuser.me/',
+    dataType: 'json',
+    success: function(data){
+      console.log(data);
+      var user = data.results[0].user;
+      var userName = user.name.first + ' ' + user.name.last;
+      var userAddr = user.location.city + ', ' + user.location.state;
+      
+      var userPicture = user.picture.large;
+
+      console.log(userName + ' \n' + userAddr )
+      $("[data-user-name]").empty().append(userName)
+      $("[data-user-location]").empty().append('<span class="entypo-location"></span>' + userAddr)
+      $("[data-user-picture]").attr({
+        src: userPicture, 
+        alt: userName + 'picture'
+      });
+      
+      console.log(data)
+    }
+  });
+  
+  
+  function appear(){
+    setTimeout(function(){
+      $('.card').addClass('activated')
+    }, 500)
+    
+    setTimeout(function(){
+      $('.card').addClass('activated-zoom')
+    }, 500)
+    setTimeout(function(){
+      $('.card').removeClass('activated-zoom')
+    }, 800)
+  }
+  
+  appear()
+
+});
+
+
