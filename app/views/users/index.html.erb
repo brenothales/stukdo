@@ -1,14 +1,13 @@
 
-
   <h1>
     Visão Geral 
     <small>Acompanhamento de Tarefas</small>
   </h1>
   
-  <div class="row searchable-container">
+  <ul class="searchable-container">
     <% @users.each do |u| %>
-    <div class="col-sm-3">
-      <div class="card items ">
+    <li class="">
+      <div class="card items col-sm-3">
         <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
         <div class="avatar">
           <img src="" alt="" />
@@ -41,6 +40,6 @@
         </p>
       </div>
     </div>
-  </div>
+  </li>
   <% end -%>
-</div>
+</ul>
