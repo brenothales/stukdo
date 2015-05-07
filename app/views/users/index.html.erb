@@ -1,16 +1,17 @@
-
+  <div class="row">
   <h1>
     Visão Geral 
     <small>Acompanhamento de Tarefas</small>
   </h1>
-  
+
   <ul class="searchable-container">
     <% @users.each do |u| %>
     <li class="">
       <div class="card items col-sm-3">
         <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
         <div class="avatar">
-          <img src="" alt="" />
+          <!-- <img src="" alt="" /> -->
+          <%= image_tag((), alt: "") %>
         </div>
         <%= image_tag(u.avatar.url(:thumb), class:"src-image" )%> <br>
         <div class="content">
@@ -43,3 +44,4 @@
   </li>
   <% end -%>
 </ul>
+</div>
