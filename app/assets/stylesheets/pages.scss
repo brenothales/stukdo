@@ -38,7 +38,9 @@
 
 }
 
-	  
+.barra {
+  padding-left: 14%;
+}	  
 
 .navbar-default {
   background-color: #2196F3;
@@ -56,6 +58,30 @@
   color: white; 
 }
 
+
+.navbar-login
+{
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size
+{
+    font-size: 87px;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus{
+	background-color: transparent; 
+	color:white;
+}
 
 @media (max-width: 768px){
   .navbar-default .navbar-collapse, .navbar-default .navbar-form{
