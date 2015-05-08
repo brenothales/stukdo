@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy, :change]
 
-  respond_to :html
+  respond_to :html, :json
 
 
   # GET /tasks 
