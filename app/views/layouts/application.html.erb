@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Gerenciador de Tarefas</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -10,7 +10,8 @@
 </head>
 <body>
 <%= render "layouts/header" %> 
-<div class="container">
+
+<div class="<%= 'container' unless @user.present? %>">
 <div>
   <% flash.each do |key, value| %>
     <div class="<%= flash_class(key) %> fade in">

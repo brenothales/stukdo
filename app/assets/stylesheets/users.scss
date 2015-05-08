@@ -84,10 +84,12 @@ $gradient: rgb(40,202,202),rgb(67,157,202);
       
     }
 }
-// .content{
+ .content{
     
 //     font-family: sans-serif !important;
 //     color: rgba(255, 255, 255, 0.69) !important;
+       text-transform: capitalize;
+}
 
 // h2{
 //   text-transform: capitalize;

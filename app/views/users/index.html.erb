@@ -1,7 +1,6 @@
   <div class="row">
   <h1>
-    Visão Geral 
-    <small>Acompanhamento de Tarefas</small>
+    <small>Acompanhamento de Tarefas Total <%= @tasks.public_tasks.count %> </small>
   </h1>
 
   <ul class="searchable-container">
@@ -22,17 +21,17 @@
           <h2> <% unless u.nome.empty? -%>
            <%= u.nome %> <%= u.sobrenome %>
            <% else %>
-           <%= u.email %>
+           <%= u.email %>  
            <% end %> </h2>
            <i class="fa fa-mobile"></i> <%= u.celular if u.celular.present? %> <br>  
            <i class="fa fa-map-marker"></i> <%= u.setor if u.setor.present? %> <br>
            <% if u.funcacao.present? %>
-           <i class="fa fa-graduation-cap"></i> <%= u.funcacao %> <br>
+            <i class="fa fa-tag"></i> <%= u.funcacao.capitalize %> <br>
            <% else -%>
            <br>
            <% end -%>
            <% if u.formacao.present? %>
-           <i class="fa fa-tag"></i></i> <%= u.formacao %> <br>
+          <i class="fa fa-graduation-cap"></i></i> <%= u.formacao.capitalize %> <br>
            <% else -%>
            <br>
            <% end -%>

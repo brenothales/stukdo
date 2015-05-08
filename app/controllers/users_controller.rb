@@ -11,7 +11,7 @@ respond_to :json
   end
 
   def show
-    @user = User.with_public_tasks.where(id: params[:id]).first
+    @user = User.with_public_tasks.where(id: params[:id]).last
     redirect_to users_path, notice: "Desculpe, este usuário não tem funções públicas" unless @user.present?
   end
  

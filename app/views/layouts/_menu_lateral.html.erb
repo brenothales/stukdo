@@ -1,0 +1,153 @@
+
+
+<div class="nav-side-menu">
+    <div class="brand">
+      <div class="card items">
+        <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+        <div class="avatar">
+          <!-- <img src="" alt="" /> -->
+          <%= image_tag((), alt: "") %>
+        </div>
+        <% if @user.avatar.present? %>
+          <%= image_tag(@user.avatar.url(:thumb), class:"src-image" )%> 
+        <% else %>
+          <%= image_tag(('avatars/avatar.png'), class:"src-image" ) %> 
+        <% end -%>
+        <div class="content">
+          <h2> 
+            <% unless @user.nome.empty? -%>
+            <%= @user.nome %> <%= @user.sobrenome %>
+            <% else %>
+            <%= @user.email %>  
+           <% end %> 
+         </h2>
+
+          <h3> 
+            <% if @user.funcacao.present? -%>
+               <%= @user.funcacao %>
+           <% end %> 
+         </h3>
+
+      </div>
+      </div>
+    </div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+  
+        <div class="menu-list">
+  
+            <ul id="menu-content" class="menu-content collapse out">
+              <% if @user.setor.present? %>
+                <li>
+                  <a href="#" data-toggle="tooltip" data-placement="rigth" title="Setor">
+                  <i class="fa fa-map-marker"></i> <%= @user.setor%> 
+
+                  </a>
+                </li>
+              <% end -%>
+              
+               <% if @user.formacao.present? %>
+                <li>
+                  <a href="#" data-toggle="tooltip" data-placement="rigth" title="Formação">
+                   <i class="fa fa-graduation-cap"></i> <%= @user.formacao.capitalize %> <br>
+                  </a>
+                </li>
+              <% end -%>
+              
+               <% if @user.celular.present? %>
+                <li>
+                  <a href="#" data-toggle="tooltip" data-placement="rigth" title="Celular">
+                    <i class="fa fa-phone"></i> <%= @user.celular %> <br>
+                  </a>
+                </li>
+              <% end -%>
+
+               <% if @user.email.present? %>
+                <li>
+                  <a href="#" data-toggle="tooltip" data-placement="rigth" title="E-mail">
+                    <i class="fa fa-envelope-o"></i> <%= @user.email %> <br>
+                  </a>
+                </li>
+              <% end -%>
+              
+               <% if @user.sign_in_count.present? %>
+                <li>
+                  <a href="#" data-toggle="tooltip" data-placement="rigth" title="Quantidade de login">
+                  <i class="fa fa-sign-out"></i> <%= @user.sign_in_count %> <br>
+                  </a>
+                </li>
+              
+              <% if @user.last_sign_in_at.present? %>
+                <li>
+                  <a href="#" data-toggle="tooltip" data-placement="rigth" title="Última Sessão">
+                    <i class="fa fa-desktop"></i> <%= @user.last_sign_in_at %> <br>
+                  </a>
+                </li>
+              <% end -%>
+
+                <% if @user.last_sign_in_ip.present? %>
+                <li>
+                  <a href="#" data-toggle="tooltip" data-placement="rigth" title="Último IP">
+                    <i class="fa fa-plug"></i> <%= @user.last_sign_in_ip %> <br>
+                  </a>
+                </li>
+              <% end -%>
+
+
+
+              <% end -%>
+
+              
+
+
+
+               <!--  <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+                  <a href="#" data-toggle="tooltip" data-placement="rigth" title="Setor"><i class="fa fa-gift fa-lg"></i> UI Elements <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="products">
+                    <li class="active"><a href="#">CSS3 Animation</a></li>
+                    <li><a href="#">General</a></li>
+                    <li><a href="#">Buttons</a></li>
+                    <li><a href="#">Tabs & Accordions</a></li>
+                    <li><a href="#">Typography</a></li>
+                    <li><a href="#">FontAwesome</a></li>
+                    <li><a href="#">Slider</a></li>
+                    <li><a href="#">Panels</a></li>
+                    <li><a href="#">Widgets</a></li>
+                    <li><a href="#">Bootstrap Model</a></li>
+                </ul>
+
+
+                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                  <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+                </li>  
+                <ul class="sub-menu collapse" id="service">
+                  <li>New Service 1</li>
+                  <li>New Service 2</li>
+                  <li>New Service 3</li>
+                </ul>
+
+
+                <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="new">
+                  <li>New New 1</li>
+                  <li>New New 2</li>
+                  <li>New New 3</li>
+                </ul>
+
+
+                 <li>
+                  <a href="#">
+                  <i class="fa fa-user fa-lg"></i> Profile
+                  </a>
+                  </li>
+
+                 <li>
+                  <a href="#">
+                  <i class="fa fa-users fa-lg"></i> Users
+                  </a>
+                </li>
+            </ul> -->
+     </div>
+</div>

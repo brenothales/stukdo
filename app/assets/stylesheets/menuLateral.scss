@@ -1,0 +1,205 @@
+.branco{
+  background-color:white;
+  background-image: none;
+}
+.nav-side-menu {
+  overflow: auto;
+  font-family: verdana;
+  font-size: 12px;
+  font-weight: 200;
+  background-color: #FFFFFF;
+  position: fixed;
+  top: 67px;
+  width: 300px;
+  height: 0px !important;;
+  height: 100% !important;
+  color: #9F9F9F;
+  left: 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  .brand {
+    background-color: #23282e;
+    line-height: 50px;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    height: 337px;
+  }
+
+  .card {
+  overflow: hidden;
+  position: relative;
+  border: none;
+  border-radius: 0 !important;
+  text-align: center;
+  padding: 0;
+  background-color: #fff;
+  color: #FBFAF7;
+  font-family: entypo;
+  display: inline-block;
+  float: left;
+  margin: 0px 16px 16px 0px;
+  width: 100%;
+  height: 100%; 
+  box-shadow: none;
+  transition: all .3s ease;
+  transform: scale(0.6);
+  opacity: 0;
+  -webkit-font-smoothing: antialiased;
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  border-bottom: 1px solid rgb(229, 229, 229);
+  padding-bottom: 5px;
+
+  .header-bg {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-bottom: none !important;
+}
+h2{
+  color:white !important;
+}
+h3{
+    font-size: 15px;
+  color:white !important;
+  line-height: 8px !important;
+  text-transform: uppercase !important;
+  margin-top: 20px !important; 
+}
+
+  .avatar img {
+  width: 150px;
+  height: 150px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+}
+
+  .card h2, .card h3 {
+  text-transform: capitalize;
+  line-height: 0.89;
+  color: #B8B8B8;
+  display: block;
+
+}
+  .toggle-btn {
+    display: none;
+  }
+  ul, li {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    line-height: 35px;
+    cursor: pointer;
+  }
+  ul :not(collapsed) .arrow:before, li :not(collapsed) .arrow:before {
+    font-family: FontAwesome;
+    content: "\f078";
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+    float: right;
+  }
+  ul .active, li .active {
+    border-left: 3px solid #DC2879;
+    background-color: #F2F2F2;
+  }
+  ul .sub-menu li.active, li .sub-menu li.active, ul .sub-menu li.active a, li .sub-menu li.active a {
+    color: #d19b3d;
+  }
+  ul .sub-menu li, li .sub-menu li {
+    background-color: #181c20;
+    border: none;
+    line-height: 28px;
+    border-bottom: 1px solid #EDEDED;
+    margin-left: 0px;
+  }
+  ul .sub-menu li:hover, li .sub-menu li:hover {
+    background-color: #020203;
+  }
+  ul .sub-menu li:before {
+    font-family: FontAwesome;
+    content: "\f105";
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+  }
+  li {
+    .sub-menu li:before {
+      font-family: FontAwesome;
+      content: "\f105";
+      display: inline-block;
+      padding-left: 10px;
+      padding-right: 10px;
+      vertical-align: middle;
+    }
+    padding-left: 0px;
+    border-left: 3px solid #2196F4;
+    border-bottom: 1px solid #EDEDED;
+    a {
+      text-decoration: none;
+      color: #9F9F9F;
+      i {
+        padding-left: 10px;
+        width: 20px;
+        padding-right: 20px;
+      }
+    }
+    &:hover {
+      border-left: 3px solid #DC2879;
+      background-color: #F2F2F2;
+      -webkit-transition: all 1s ease;
+      -moz-transition: all 1s ease;
+      -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+      transition: all 1s ease;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .nav-side-menu {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    .toggle-btn {
+      display: block;
+      cursor: pointer;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      z-index: 10 !important;
+      padding: 3px;
+      background-color: #ffffff;
+      color: #000;
+      width: 40px;
+      text-align: center;
+    }
+  }
+  .brand {
+    text-align: left !important;
+    font-size: 22px;
+    padding-left: 20px;
+    line-height: 50px !important;
+  }
+}
+
+@media (min-width: 767px) {
+  .nav-side-menu .menu-list .menu-content {
+    display: block;
+  }
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
