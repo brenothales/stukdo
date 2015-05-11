@@ -6,7 +6,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :tasks, dependent: :destroy
+  # scope :todo_tasks,        -> { includes(:tasks).includes(tasks: :subtasks).where(tasks: {state: "to_do"})}
   scope :with_public_tasks, -> { includes(:tasks).includes(tasks: :subtasks).where(tasks: {public: false})}
+
+  
+  
+  # scope :adultos, where("idade > 19").order(:nome)
   validates_presence_of :nome, :sobrenome, :celular, :funcacao, :setor, :username
   validates_uniqueness_of :username, :celular
   
