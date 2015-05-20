@@ -12,6 +12,31 @@
   </div>
 
   <div class="col-md-10">
+    
+     <div class="row ">
+    <div class="col-md-3 items ">
+      <div class="col-md-12 quadro meio vermelhocor">
+        <h3>Fazer  <%= @to_do.size  %></h3>
+      </div>
+    </div>
+
+    <div class="col-md-3 items">
+      <div class="col-md-12 quadro meio amarelocor">
+        <h3>Fazendo <%= @doing.size  %></h3>
+      </div>
+    </div>
+
+    <div class="col-md-3 items">
+      <div class="col-md-12 quadro meio azulcor">
+        <h3>Finalizado <%= @done.size  %></h3>
+      </div>
+    </div>
+    <div class="col-md-3 items">
+      <div class="col-md-12 quadro meio verdecor">
+        <h3>Total <%= @user.tasks.public_tasks.size %></h3>
+      </div>
+    </div>
+  </div>
   
  
   
@@ -70,30 +95,7 @@
     <% end %>
     <% end -%>
   </div>
-   <div class="row ">
-    <div class="col-md-3 items ">
-      <div class="col-md-12 quadro meio vermelhocor">
-        <h3>Fazer  <%= @to_do.size  %></h3>
-      </div>
-    </div>
-
-    <div class="col-md-3 items">
-      <div class="col-md-12 quadro meio amarelocor">
-        <h3>Fazendo <%= @doing.size  %></h3>
-      </div>
-    </div>
-
-    <div class="col-md-3 items">
-      <div class="col-md-12 quadro meio azulcor">
-        <h3>Finalizado <%= @done.size  %></h3>
-      </div>
-    </div>
-    <div class="col-md-3 items">
-      <div class="col-md-12 quadro meio verdecor">
-        <h3>Total <%= @user.tasks.public_tasks.size %></h3>
-      </div>
-    </div>
-  </div>
+  
 
 </div>
 
