@@ -69,6 +69,8 @@ $(document).ready(function() {
 
 
 
+
+
 // $(function() {
 //     var head = $('#header')
 //     var top = head.css('top');

@@ -8,8 +8,9 @@ class User < ActiveRecord::Base
   has_many :tasks, dependent: :destroy
   # scope :todo_tasks,        -> { includes(:tasks).includes(tasks: :subtasks).where(tasks: {state: "to_do"})}
   scope :with_public_tasks, -> { includes(:tasks).includes(tasks: :subtasks).where(tasks: {public: false})}
-
+  scope :todo_tasks, -> { includes(:tasks).where(tasks: {state: "to_do"})}
   
+  # scope :tynewydd_posts, :include => :department, :conditions => {"departments.name" => "Ty Newydd"}.order("posts.created_at DESC")
   
   # scope :adultos, where("idade > 19").order(:nome)
   validates_presence_of :nome, :sobrenome, :celular, :funcacao, :setor, :username

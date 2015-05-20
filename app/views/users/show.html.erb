@@ -1,101 +1,100 @@
-<div class="branco" >
-    <div class="container"></div>
 
-    <div class="col-sm-3">
-        <%= render "layouts/menu_lateral" %> 
+
+
+
+
+<div class="branco">
+
+  <div class="col-md-2">
+    <div class="row">
+      <%= render "layouts/menu_lateral" %> 
+    </div>
+  </div>
+
+  <div class="col-md-10">
+  
+ 
+  
+  <div class="row searchable-container">
+    <% @user.tasks.order("created_at desc").each do |task| %>  
+    <% if task.public == false %>
+    <div class="col-md-12 ">
+      <div class="panel-postit panel items 
+      <%='amarelo2borda' if task.state == "doing"%> <%='vermelhoborda' if task.state == "to_do"%>
+      <%='azulborda' if task.state == "done"%>   ">
+      <div class="postit-heading panel-heading">
+        <span class=" clickable">
+          <h3 class="panel-title"><%= task.content %>   </h3> 
+            <div class="datas">Criado <%= time_ago_in_words(task.created_at) %> Atualizado <%= time_ago_in_words(task.updated_at) %></div>
+         <span class="pull-right"> <i class=" fa fa-chevron-down"></i></span>
+        </span>
+        </div>
+        <div class="postit-body" style="display: none;">
+          <p><%= task.descricao %></p> <br>
+          <ul id="selector">
+            <% task.subtasks.each do |subtask| %>
+            <div class="subtask-title">
+              <% if subtask.work?  %>
+              <span class="icon"><i class="laranjaicon fa fa-refresh fa-spin"></i></span>
+              <% elsif subtask.complete? %>
+              <span class="icon "><i class="verdeicon fa fa-check fa-1x"></i></span>
+              <% else %>
+              <span class="icon">&#9417;</span>
+              <% end %> 
+              <span><%= subtask.name %> <%= subtask.created_at %> </span>
+              <% if !subtask.logs.empty? %>
+              <!-- <span class="show-logs">&#8609;</span> -->
+              <% end %>
+              <div class="subtask-logs logs-<%=subtask.id %>">
+                <%= render subtask.logs %>
+              </div>
+            </div>
+            <% end -%>
+          </ul>
+          
+          <% if task.url.present? %>  
+         <div class="input-group">
+          <input type="text" class="form-control" placeholder="<%= task.url %>" aria-describedby="basic-addon2"  value="<%= task.url %>">
+          <span class="input-group-addon" id="basic-addon2">
+            <%= link_to task.url, target: "_blank" do %>
+            <i class="fa fa-external-link"></i>
+            <% end -%>
+          </span>
+        </div>
+        <% end -%>
+          
+          
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end -%>
+  </div>
+   <div class="row ">
+    <div class="col-md-3 items ">
+      <div class="col-md-12 quadro meio vermelhocor">
+        <h3>Fazer  <%= @to_do.size  %></h3>
+      </div>
     </div>
 
-  <div class="col-sm-9 " style="background:white">
-    <div class="row">
-        <h1>
-          <%= @user.tasks.public_tasks.count %> Projetos Público de 
-          <% if @user.nome != "" %>
-          <%= @user.nome %> <%= @user.sobrenome %>
-          <% else %>
-          <%= @user.email %>
-          <% end %>
-          <small>Acompanhamento de Tarefas  </small>
-        </h1>
+    <div class="col-md-3 items">
+      <div class="col-md-12 quadro meio amarelocor">
+        <h3>Fazendo <%= @doing.size  %></h3>
+      </div>
+    </div>
 
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4>Tarefas Públicas</h4>
-          </div>
-            <div class="table-responsive">  
-              <table class="table table-list-search">
-              <thead>
-                <tr>
-                  <th class="col-md-3">Tarefa</th>
-                  <th class="col-md-2">Subtarefas</th>
-                  <th class="col-md-2">Status</th>
-                  <th class="col-md-1">Última Alteração</th>
-                  <th class="col-md-2">Criadas</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @user.tasks.each do |task| %>
-                <tr>
-                  <td>
-                     <b><%= task.content %></b> <br>
-                     <p><%= task.descricao %></p>
-                     <p><%= task.subtasks.size %></p>
-                  
-                  <% if task.url.present? %>  
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="<%= task.url %>" aria-describedby="basic-addon2"  value="<%= task.url %>">
-                    <span class="input-group-addon" id="basic-addon2">
-                      <%= link_to task.url, target: "_blank" do %>
-                      <i class="fa fa-external-link"></i>
-                      <% end -%>
-                    </span>
-                  </div>
-                  <% end -%>
-                </td>
-                <td>
-                  <ul id="selector">
-                    <% task.subtasks.each do |subtask| %>
-                      <div class="subtask-title">
-                          <% if subtask.work?  %>
-                          <span class="icon"><i class="laranjaicon fa fa-refresh fa-spin"></i></span>
-                          <% elsif subtask.complete? %>
-                          <span class="icon "><i class="verdeicon fa fa-check fa-1x"></i></span>
-                          <% else %>
-                          <span class="icon">&#9417;</span>
-                          <% end %> 
-                          <span><%= subtask.name %> </span>
-                          <% if !subtask.logs.empty? %>
-                          <!-- <span class="show-logs">&#8609;</span> -->
-                          <% end %>
-                          <div class="subtask-logs logs-<%=subtask.id %>">
-                            <%= render subtask.logs %>
-                          </div>
-                      </div>
-                    <% end -%>
-                  </ul>
-                </td>
-                <td> 
-                  <% if task.state == "done" %>
-                  <span class="label label-success">Finalizado</span>
-                  <% elsif task.state == "doing" %>
-                  <span class="label label-warning">Fazendo</span>
-                  <% else  %>
-                  <span class="label label-danger">Fazer</span>
-                  <% end %>
-                </td>
-
-                <td>
-                  <%= time_ago_in_words(task.updated_at) %>
-                </td>
-                <td>
-                  <%= time_ago_in_words(task.created_at) %>
-                </td>
-              </tr>
-              <% end %>
-              </tbody>
-              </table>
-            </div>
-        </div>
-    </div>    
+    <div class="col-md-3 items">
+      <div class="col-md-12 quadro meio azulcor">
+        <h3>Finalizado <%= @done.size  %></h3>
+      </div>
+    </div>
+    <div class="col-md-3 items">
+      <div class="col-md-12 quadro meio verdecor">
+        <h3>Total <%= @user.tasks.public_tasks.size %></h3>
+      </div>
+    </div>
   </div>
+
 </div>
+
+
