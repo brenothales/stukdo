@@ -17,6 +17,7 @@ respond_to :json
     @doing = @user.tasks.public_tasks.where(state: "doing")
     @done = @user.tasks.public_tasks.where(state: "done")
 
+
     redirect_to users_path, notice: "Desculpe, este usuário não tem funções públicas" unless @user.present?
   end
  

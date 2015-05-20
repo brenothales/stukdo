@@ -33,7 +33,6 @@
     </div>
   </div>
   
- 
   
   <div class="row searchable-container">
     <% @user.tasks.order("created_at desc").each do |task| %>  
@@ -44,8 +43,15 @@
       <%='azulborda' if task.state == "done"%>   ">
       <div class="postit-heading panel-heading">
         <span class=" clickable">
-          <h3 class="panel-title"><%= task.content %> </h3> 
-            <div class="datas">Criado <%= time_ago_in_words(task.created_at) %> Atualizado <%= time_ago_in_words(task.updated_at) %> </div>
+          <h3 class="panel-title"><%= task.content %> 
+          
+          </h3> 
+            <div class="datas">Criado <%= time_ago_in_words(task.created_at) %> Atualizado <%= time_ago_in_words(task.updated_at) %>
+              <% if task.subtasks.size > 0 %>
+                <span class='label label-info'> <%= task.subtasks.size %> Subtarefas <span class="show-logs">&#8609;</span></span>
+              <% end -%>
+            
+              </div>
          <span class="pull-right"> <i class=" fa fa-chevron-down"></i></span>
         </span>
         </div>
